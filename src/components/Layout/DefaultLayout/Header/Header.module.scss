@@ -1,0 +1,222 @@
+.wrapper {
+    height: 86px;
+    width: 100%;
+    max-width: 1520px;
+    padding: 0 10px;
+    background-color: var(--while);
+    border-bottom: 1px #dde1ef solid;
+}
+
+.inner-top {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 4px;
+}
+
+.introduce {
+    ul {
+        display: flex;
+        list-style: none;
+    }
+}
+
+.introduce-icon {
+    padding-right: 10px;
+}
+
+.introduce-link {
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: var(--black);
+    margin-right: 20px;
+    b {
+        font-size: 1.4rem;
+        margin: 4px;
+        color: var(--primary);
+    }
+    span {
+        position: relative;
+        top: -2px;
+        font-size: 1rem;
+        color: var(--while);
+        padding: 2px 8px;
+        border-radius: 999px;
+        background-color: #ee4d2d;
+    }
+}
+// search and action
+.search-action {
+    display: flex;
+}
+
+//search
+.search-result,
+.search {
+    width: 396px;
+}
+
+.search {
+    height: 38px;
+    background-color: var(--while);
+    display: flex;
+    align-items: center;
+    border: 1px solid #dde1ef;
+    border-radius: 8px;
+    padding-left: 16px;
+    &:hover {
+        border-color: var(--primary);
+    }
+    input {
+        flex: 1;
+        height: 100%;
+        outline: none;
+        border: none;
+        font-size: 1.4rem;
+        color: #000;
+    }
+}
+
+.search-btn {
+    width: 60px;
+    height: 100%;
+    border: none;
+    outline: none;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    font-size: 2.2rem;
+    color: var(--while);
+    background-color: var(--primary);
+    cursor: pointer;
+}
+
+// tippySearch
+.search-result {
+    cursor: pointer;
+    a {
+        padding: 8px 0;
+        margin: auto;
+        font-size: 1.4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 400;
+        text-decoration: none;
+        color: var(--black);
+    }
+    :hover {
+        a {
+            cursor: pointer;
+            color: var(--primary);
+        }
+    }
+}
+
+// action
+.action {
+    --ml: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    .btn-action {
+        font-size: 1.4rem;
+        text-decoration: none;
+        color: var(--black);
+        margin-left: var(--ml);
+        &::after {
+            position: absolute;
+            content: '';
+            top: 4px;
+            left: calc(var(--ml) * 4);
+            width: 1px;
+            height: 80%;
+            background-color: #000;
+        }
+    }
+}
+
+.user-login {
+    display: flex;
+    padding-left: 30px;
+    font-size: 2.4rem;
+    cursor: pointer;
+}
+
+// User-login Tippy
+.list-user {
+    min-width: 170px;
+    .wrap-list {
+        padding: 10px 16px;
+        font-size: 1.4rem;
+        font-weight: 600;
+        span {
+            display: block;
+            padding: 10px 16px 10px 0;
+            color: var(--primary);
+            border-bottom: 1px solid #c3c2c2;
+        }
+        .action-user {
+            padding: 10px 16px 10px 0;
+            font-weight: 400;
+            font-size: 1.3rem;
+            cursor: pointer;
+        }
+        .btn-logout {
+            padding: 10px 16px 10px 0;
+        }
+    }
+}
+
+// inner bottom
+
+.inner-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo-category {
+    display: flex;
+    ul {
+        list-style: none;
+        display: flex;
+        :hover {
+            .category-link {
+                color: red;
+                border-bottom: 1px solid var(--primary);
+            }
+        }
+    }
+}
+
+.logo {
+    width: 140px;
+    .logo-img {
+        width: 90px;
+        border: 0;
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.category-link {
+    display: block;
+    font-size: 1.6rem;
+    color: var(--black);
+    text-decoration: none;
+    margin-top: 10px;
+    padding: 0 10px 10px 10px;
+}
+
+// cart
+.cart {
+    text-decoration: none;
+    color: var(--black);
+    span {
+        padding-left: 10px;
+        font-size: 1.4rem;
+        &:hover {
+            color: var(--primary);
+        }
+    }
+}

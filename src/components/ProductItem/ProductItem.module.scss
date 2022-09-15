@@ -1,0 +1,35 @@
+.wrapper {
+    width: 100%;
+    height: 64px;
+    display: flex;
+    padding: 4px;
+    border-bottom: 1px solid #c3c2c2;
+    :hover {
+        h4 {
+            color: var(--primary);
+        }
+    }
+}
+
+.product-img {
+    text-align: center;
+    float: left;
+    width: 40px;
+    margin-right: 5px;
+    img {
+        border: 0;
+        max-width: 100%;
+        height: auto;
+    }
+}
+.title-price {
+    font-size: 1.4rem;
+    h4 {
+        color: var(--black);
+        font-weight: 400;
+    }
+    span {
+        font-weight: 500;
+        color: red;
+    }
+}
