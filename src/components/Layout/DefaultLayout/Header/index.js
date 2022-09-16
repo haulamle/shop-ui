@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tippy from '@tippyjs/react/headless';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
+
+// import axios from 'axios';
 
 import styles from './Header.module.scss';
 import {
@@ -12,35 +13,94 @@ import {
     faBolt,
     faChevronDown,
     faLocationDot,
-    faMagnifyingGlass,
     faPhone,
 } from '@fortawesome/free-solid-svg-icons';
 
-import ProductItem from '~/components/ProductItem';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
+import Search from './Search';
 
 const cx = classNames.bind(styles);
 
 function Header() {
+    // const [products, setProducts] = useState([]);
+
     const actionList = [
         {
             title: 'tài khoản của tôi',
+            href: '/account',
         },
         {
             title: 'Đổi Mật Khẩu',
+            href: '/account',
         },
         {
             title: 'Số Địa chỉ',
+            href: '/account',
         },
     ];
     const user = false;
 
-    const [searchResult, setSearchResult] = useState([]);
-    useEffect(() => {
-        setTimeout(() => {
-            setSearchResult([]);
-        }, 3000);
-    }, []);
+    const productFemale = [
+        {
+            trouser: 'Quần Jean Nữ',
+            shirt: 'Áo Thun Nữ',
+        },
+        {
+            trouser: 'Quần Âu Nữ',
+            shirt: 'Áo Thun Hoạ Tiết',
+        },
+        {
+            trouser: 'Quần Kaki Nữ',
+            shirt: 'Áo Polo Nữ',
+        },
+        {
+            trouser: 'Quần Short Nữ',
+            shirt: 'Áo Sơ Mi Nữ',
+        },
+        {
+            trouser: null,
+            shirt: 'Áo Khoát Nữ',
+        },
+        {
+            trouser: null,
+            shirt: 'Áo Len Nữ',
+        },
+    ];
+
+    const productMale = [
+        {
+            trouser: 'Quần Jean nam',
+            shirt: 'Áo Ba Lỗ nam',
+        },
+        {
+            trouser: 'Quần Âu nam',
+            shirt: 'Áo Vest',
+        },
+        {
+            trouser: 'Quần Kaki nam',
+            shirt: 'Áo Polo nam',
+        },
+        {
+            trouser: 'Quần Short nam',
+            shirt: 'Áo Sơ Mi nam',
+        },
+        {
+            trouser: null,
+            shirt: 'Áo Khoát nam',
+        },
+    ];
+
+    // let genderCheck = 'Nữ';
+    // let productCheck = 'Quần';
+    // const productFemale = products
+    //     .filter((product) => product?.name?.toLowerCase()?.includes(genderCheck.toLowerCase()))
+    //     .filter((item) => item?.name?.toLowerCase()?.includes(productCheck.toLowerCase()));
+
+    // useEffect(() => {
+    //     axios.get('http://localhost:5000/product').then((response) => {
+    //         setProducts(response.data.data);
+    //     });
+    // }, []);
 
     return (
         <header className={cx('wrapper')}>
@@ -78,28 +138,7 @@ function Header() {
                 {/* search and login  */}
                 <div className={cx('search-action')}>
                     {/* search */}
-                    <Tippy
-                        interactive
-                        visible={searchResult.length > 0}
-                        render={(attrs) => (
-                            <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                                <PopperWrapper>
-                                    <ProductItem />
-                                    <ProductItem />
-                                    <ProductItem />
-                                    <ProductItem />
-                                    <a href="abc">Xem tất cả (322)</a>
-                                </PopperWrapper>
-                            </div>
-                        )}
-                    >
-                        <div className={cx('search')}>
-                            <input placeholder="Cần tìm áo Khoác, áo polo..." spellCheck={false} />
-                            <button className={cx('search-btn')}>
-                                <FontAwesomeIcon icon={faMagnifyingGlass} />
-                            </button>
-                        </div>
-                    </Tippy>
+                    <Search />
                     {/* login */}
                     <div className={cx('action')}>
                         {user ? (
@@ -113,9 +152,13 @@ function Header() {
                                                     <span>Hậu Lâmle</span>
                                                     {actionList.map((data, index) => {
                                                         return (
-                                                            <div key={index} className={cx('action-user')}>
+                                                            <Link
+                                                                to={data.href}
+                                                                key={index}
+                                                                className={cx('action-user')}
+                                                            >
                                                                 {data.title}
-                                                            </div>
+                                                            </Link>
                                                         );
                                                     })}
                                                     <Link className={cx('btn-logout')} to="/logout">
@@ -161,16 +204,137 @@ function Header() {
                                 MUA 2 TẶNG 1
                             </a>
                         </li>
-                        <li>
-                            <a className={cx('category-link')} href="abc">
-                                NỮ
-                            </a>
-                        </li>
-                        <li>
-                            <a className={cx('category-link')} href="abc">
-                                NAM
-                            </a>
-                        </li>
+                        <Tippy
+                            interactive
+                            placement="top-start"
+                            render={(attrs) => (
+                                <div className={cx('list-category')} tabIndex="-1" {...attrs}>
+                                    <PopperWrapper>
+                                        <div className={cx('container-category')}>
+                                            <div className={cx('box-category')}>
+                                                <h1 className={cx('name-category')}>ÁO</h1>
+                                                <ul>
+                                                    {productFemale.map((item, index) => {
+                                                        return (
+                                                            <li key={index}>
+                                                                <a className={cx('product-category')} href="abc">
+                                                                    {item.shirt}
+                                                                </a>
+                                                            </li>
+                                                        );
+                                                    })}
+                                                </ul>
+                                            </div>
+                                            <div className={cx('box-category')}>
+                                                <h1 className={cx('name-category')}>QUẦN</h1>
+                                                <ul>
+                                                    {productFemale.map((item, index) => {
+                                                        return (
+                                                            <li key={index}>
+                                                                <a className={cx('product-category')} href="abc">
+                                                                    {item.trouser}
+                                                                </a>
+                                                            </li>
+                                                        );
+                                                    })}
+                                                </ul>
+                                            </div>
+                                            <div className={cx('box-category')}></div>
+                                            <div className={cx('box-category')}></div>
+                                            <div className={cx('box-category')}>
+                                                <div className={cx('category-img')}>
+                                                    <img
+                                                        src="https://bizweb.sapocdn.net/thumb/grande/100/438/408/themes/863105/assets/link_image_2_1.jpg?1663298001005"
+                                                        alt=""
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </PopperWrapper>
+                                </div>
+                            )}
+                        >
+                            <li>
+                                <a className={cx('category-link')} href="abc">
+                                    NỮ
+                                </a>
+                            </li>
+                        </Tippy>
+                        <Tippy
+                            interactive
+                            placement="top-start"
+                            render={(attrs) => (
+                                <div className={cx('list-category')} tabIndex="-1" {...attrs}>
+                                    <PopperWrapper>
+                                        <div className={cx('container-category')}>
+                                            <div className={cx('box-category')}>
+                                                <h1 className={cx('name-category')}>ÁO</h1>
+                                                <ul>
+                                                    {productMale.map((item, index) => {
+                                                        return (
+                                                            <li key={index}>
+                                                                <a className={cx('product-category')} href="abc">
+                                                                    {item.shirt}
+                                                                </a>
+                                                            </li>
+                                                        );
+                                                    })}
+                                                </ul>
+                                            </div>
+                                            <div className={cx('box-category')}>
+                                                <h1 className={cx('name-category')}>QUẦN</h1>
+                                                <ul>
+                                                    {productMale.map((item, index) => {
+                                                        return (
+                                                            <li key={index}>
+                                                                <a className={cx('product-category')} href="abc">
+                                                                    {item.trouser}
+                                                                </a>
+                                                            </li>
+                                                        );
+                                                    })}
+                                                </ul>
+                                            </div>
+                                            <div className={cx('box-category')}>
+                                                <h1 className={cx('name-category')}>QUẦN MẶC TRONG</h1>
+                                                <ul>
+                                                    <li>
+                                                        <a className={cx('product-category')} href="abc">
+                                                            Áo Thun
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a className={cx('product-category')} href="abc">
+                                                            Áo Thun
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a className={cx('product-category')} href="abc">
+                                                            Áo Thun
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div className={cx('box-category')}></div>
+                                            <div className={cx('box-category')}>
+                                                <div className={cx('category-img')}>
+                                                    <img
+                                                        src="https://bizweb.sapocdn.net/thumb/grande/100/438/408/themes/863105/assets/link_image_3_1.jpg?1663298001005"
+                                                        alt=""
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </PopperWrapper>
+                                </div>
+                            )}
+                        >
+                            <li>
+                                <a className={cx('category-link')} href="abc">
+                                    NAM
+                                </a>
+                            </li>
+                        </Tippy>
                         <li>
                             <a className={cx('category-link')} href="abc">
                                 TRẺ EM
@@ -183,10 +347,10 @@ function Header() {
                         </li>
                     </ul>
                 </div>
-                <a href="/cart" className={cx('cart')}>
+                <Link to="/cart" className={cx('cart')}>
                     <FontAwesomeIcon fontSize={24} icon={faBagShopping} />
                     <span>Giỏ Hàng</span>
-                </a>
+                </Link>
             </div>
         </header>
     );

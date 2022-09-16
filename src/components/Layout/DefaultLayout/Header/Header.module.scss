@@ -56,6 +56,7 @@
 }
 
 .search {
+    position: relative;
     height: 38px;
     background-color: var(--while);
     display: flex;
@@ -76,6 +77,18 @@
     }
 }
 
+.clear-btn,
+.loading-btn {
+    position: absolute;
+    right: 70px;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(22, 24, 35, 0.34);
+}
+
 .search-btn {
     width: 60px;
     height: 100%;
@@ -91,6 +104,7 @@
 
 // tippySearch
 .search-result {
+    margin-top: -8px;
     cursor: pointer;
     a {
         padding: 8px 0;
@@ -157,10 +171,13 @@
             border-bottom: 1px solid #c3c2c2;
         }
         .action-user {
+            display: block;
             padding: 10px 16px 10px 0;
             font-weight: 400;
             font-size: 1.3rem;
             cursor: pointer;
+            text-decoration: none;
+            color: var(--black);
         }
         .btn-logout {
             padding: 10px 16px 10px 0;
@@ -206,6 +223,54 @@
     text-decoration: none;
     margin-top: 10px;
     padding: 0 10px 10px 10px;
+}
+
+// Tippi category
+.list-category {
+    width: 100vw;
+    margin-top: -16px;
+}
+
+.container-category {
+    padding: 20px;
+    display: flex;
+}
+
+.box-category {
+    padding-left: 16px;
+    width: 20%;
+    ul {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.name-category {
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 1.4rem;
+    color: var(--black);
+}
+
+.product-category {
+    display: block;
+    font-size: 1.4rem;
+    color: var(--black);
+    text-decoration: none;
+    font-weight: 400;
+    padding-bottom: 8px;
+    &:hover {
+        color: var(--primary);
+    }
+}
+
+.category-img {
+    width: 250px;
+    img {
+        border: 0;
+        max-width: 100%;
+        height: auto;
+    }
 }
 
 // cart
