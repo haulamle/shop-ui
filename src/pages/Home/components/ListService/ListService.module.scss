@@ -1,0 +1,33 @@
+.wrapper {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-left {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 12px;
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.service-right {
+    p {
+        font-size: 1.6rem;
+        color: var(--black);
+    }
+    span {
+        display: flex;
+        justify-content: flex-start;
+        font-size: 1.4rem;
+        color: var(--black);
+        b {
+            color: #fcaf17;
+            margin-right: 4px;
+        }
+    }
+}

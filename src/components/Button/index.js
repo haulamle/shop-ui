@@ -1,10 +1,10 @@
 import classNames from 'classnames/bind';
-import styles from './Buton.module.scss';
+import styles from './Button.module.scss';
 import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-function Button({ children, to, href, primary, onClick, ...passProps }) {
+function Button({ to, href, onClick, children, primary, background, ...passProps }) {
     let Comp = 'button';
     const props = {
         onClick,
@@ -19,11 +19,13 @@ function Button({ children, to, href, primary, onClick, ...passProps }) {
         Comp = 'a';
     }
 
-    const classses = cx('wrapper', {
+    const classes = cx('wrapper', {
         primary,
+        background,
     });
+
     return (
-        <Comp classNames={classses} {...props}>
+        <Comp className={classes} {...props}>
             <span>{children}</span>
         </Comp>
     );

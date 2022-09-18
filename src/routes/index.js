@@ -7,7 +7,8 @@ import Login from '~/pages/Login';
 
 const publicRoutes = [
     { path: '/', component: Home },
-    { path: '/product', component: Product },
+    { path: '/product/:id', component: Product },
+    { path: '/product-detail/:id', component: Product },
     { path: '/login', component: Login, layout: null },
     // { path: '/login', component: Login, layout: AdminLayout },
 ];

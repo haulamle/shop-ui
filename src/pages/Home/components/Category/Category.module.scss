@@ -1,0 +1,37 @@
+.wrapper {
+    padding: 10px;
+    height: 290px;
+    // background-color: red;
+    h2 {
+        font-size: 1.8rem;
+        font-weight: 500;
+        color: #fcaf17;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+}
+
+.wrapper-category {
+    display: flex;
+    flex-wrap: wrap;
+
+    a {
+        text-decoration: none;
+    }
+}
+.category-item {
+    height: 110px;
+    width: 200px;
+    text-align: center;
+    margin-bottom: 16px;
+    img {
+        width: 72px;
+        height: 72px;
+    }
+}
+
+.category-name {
+    font-size: 1.4rem;
+    color: var(--black);
+    font-weight: 400;
+}

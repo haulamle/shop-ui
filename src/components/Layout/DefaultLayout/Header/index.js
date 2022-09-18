@@ -4,8 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tippy from '@tippyjs/react/headless';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 
-// import axios from 'axios';
-
 import styles from './Header.module.scss';
 import {
     faArrowRightFromBracket,
@@ -22,8 +20,6 @@ import Search from './Search';
 const cx = classNames.bind(styles);
 
 function Header() {
-    // const [products, setProducts] = useState([]);
-
     const actionList = [
         {
             title: 'tài khoản của tôi',
@@ -89,18 +85,6 @@ function Header() {
             shirt: 'Áo Khoát nam',
         },
     ];
-
-    // let genderCheck = 'Nữ';
-    // let productCheck = 'Quần';
-    // const productFemale = products
-    //     .filter((product) => product?.name?.toLowerCase()?.includes(genderCheck.toLowerCase()))
-    //     .filter((item) => item?.name?.toLowerCase()?.includes(productCheck.toLowerCase()));
-
-    // useEffect(() => {
-    //     axios.get('http://localhost:5000/product').then((response) => {
-    //         setProducts(response.data.data);
-    //     });
-    // }, []);
 
     return (
         <header className={cx('wrapper')}>
@@ -200,9 +184,9 @@ function Header() {
                     </Link>
                     <ul>
                         <li>
-                            <a className={cx('category-link')} href="abc">
+                            <Link className={cx('category-link')} to="/">
                                 MUA 2 TẶNG 1
-                            </a>
+                            </Link>
                         </li>
                         <Tippy
                             interactive
@@ -255,9 +239,9 @@ function Header() {
                             )}
                         >
                             <li>
-                                <a className={cx('category-link')} href="abc">
+                                <Link className={cx('category-link')} to="/">
                                     NỮ
-                                </a>
+                                </Link>
                             </li>
                         </Tippy>
                         <Tippy
@@ -330,20 +314,20 @@ function Header() {
                             )}
                         >
                             <li>
-                                <a className={cx('category-link')} href="abc">
+                                <Link className={cx('category-link')} to="/">
                                     NAM
-                                </a>
+                                </Link>
                             </li>
                         </Tippy>
                         <li>
-                            <a className={cx('category-link')} href="abc">
+                            <Link className={cx('category-link')} to="/">
                                 TRẺ EM
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a className={cx('category-link')} href="abc">
+                            <Link className={cx('category-link')} to="/">
                                 BỘ SƯU TẬP
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>

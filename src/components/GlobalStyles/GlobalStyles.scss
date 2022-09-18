@@ -24,3 +24,29 @@ body {
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
 }
+
+button,
+input,
+[tabindex] {
+    outline: none;
+    border: none;
+}
+
+a[href] {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+// reset css slick-slider
+.slick-slider {
+    z-index: -1;
+}
+.slick-prev {
+    z-index: -1;
+    left: 30px;
+}
+
+.slick-next {
+    z-index: -1;
+    right: 30px;
+}

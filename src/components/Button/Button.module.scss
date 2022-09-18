@@ -1,4 +1,34 @@
 .wrapper {
+    cursor: pointer;
+    font-size: 1.6rem;
+    min-width: 110px;
+    padding: 10px;
+    border-radius: 4px;
+    color: var(--black);
+    background-color: transparent;
+    + .wrapper {
+        margin-left: 8px;
+    }
 }
+
 .primary {
+    border: 1px #dde1ef solid;
+    &:hover {
+        background-color: var(--primary);
+        border: 1px var(--primary) solid;
+        color: var(--while);
+    }
+}
+
+.background {
+    border: 1px var(--primary) solid;
+    color: var(--while);
+    font-weight: 500;
+    padding: 14px 88px;
+    background-color: var(--primary);
+    &:hover {
+        background-color: var(--white);
+        border: 1px var(--primary) solid;
+        color: var(--primary);
+    }
 }

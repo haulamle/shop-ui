@@ -1,18 +1,19 @@
 import classNames from 'classnames/bind';
 import styles from './ProductItem.module.scss';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
-function ProductItem() {
+function ProductItem({ data }) {
     return (
-        <div className={cx('wrapper')}>
+        <Link to={`/product-detail/${data.idSP}`} className={cx('wrapper')}>
             <div className={cx('product-img')}>
-                <img src="https://bizweb.sapocdn.net/100/438/408/products/akm5041-nav-3.jpg?v=1663228610327" alt="" />
+                <img src={data.image} alt="" />
             </div>
             <div className={cx('title-price')}>
-                <h4>Áo Khoát Gió Nam Trược Nước Thông Minh</h4>
-                <span>559.000đ</span>
+                <h4>{data.name}</h4>
+                <span>{data.price}đ</span>
             </div>
-        </div>
+        </Link>
     );
 }
 
