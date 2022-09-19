@@ -18,6 +18,7 @@ const cx = classNames.bind(styles);
 function Search() {
     const [searchResult, setSearchResult] = useState([]);
     const [searchValue, setSearchValue] = useState('');
+    const [totalProduct, setTotalProduct] = useState();
     const [showResult, setShowResult] = useState(true);
     const [loading, setLoading] = useState(false);
 
@@ -35,17 +36,23 @@ function Search() {
         setShowResult(false);
     };
 
+    let limit;
+    if (debounce) {
+        limit = 4;
+    }
+
     useEffect(() => {
         setLoading(true);
         axios
             .get('http://localhost:5000/product', {
                 params: {
                     q: debounce,
-                    limit: 4,
+                    limit: limit,
                 },
             })
             .then(function (response) {
                 setSearchResult(response.data.data);
+                setTotalProduct(response.data.total);
                 setLoading(false);
             })
             .catch(function (error) {
@@ -65,8 +72,8 @@ function Search() {
                         {searchResult.map((result) => (
                             <ProductItem key={result.idSP} data={result} />
                         ))}
-                        <Link to={`/search?q=${searchValue}`} className={cx('btn-search-show-all')} href="abc">
-                            Xem tất cả (322)
+                        <Link to={`/search`} className={cx('btn-search-show-all')} href="abc">
+                            Xem tất cả ({totalProduct})
                         </Link>
                     </PopperWrapper>
                 </div>

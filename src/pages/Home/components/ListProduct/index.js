@@ -2,59 +2,95 @@ import classNames from 'classnames/bind';
 import { useEffect, useState } from 'react';
 import Button from '~/components/Button';
 import Product from '~/components/Product';
+import LoadingIcon from '~/components/Loading';
 import styles from './ListProduct.module.scss';
 import axios from 'axios';
 const cx = classNames.bind(styles);
 
 function ListProduct() {
-    const buttoncheck = ['ÁO POLO', 'ÁO THUN', 'QUẦN JEAN', 'ÁO SƠ MI', 'QUẦN ÂU'];
+    const productCategoryList = [
+        {
+            name: 'ÁO POLO',
+            idDM: 1,
+        },
+        {
+            name: 'ÁO THUN',
+            idDM: 2,
+        },
+        {
+            name: 'QUẦN JEAN',
+            idDM: 6,
+        },
+        {
+            name: 'ĐỒ THỂ THAO',
+            idDM: 8,
+        },
+    ];
     const [dataProduct, setDataProduct] = useState([]);
-    const [dataProduct2, setDataProduct2] = useState([]);
+    const [idDM, setIdDM] = useState(1);
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
-        axios
-            .get('http://localhost:5000/product', {
-                params: {
-                    limit: 20,
-                },
-            })
-            .then(function (response) {
-                setDataProduct(response.data.data);
-                setDataProduct2(response.data.data);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }, []);
-    const handleFilter = (e) => {
-        const data = dataProduct2.filter((product) => product?.name?.toLowerCase()?.includes(e.toLowerCase()));
-        setDataProduct(data);
-    };
+        setTimeout(() => {
+            axios
+                .get(`http://localhost:5000/product/catogory/${idDM}`, {
+                    params: {
+                        limit: 20,
+                    },
+                })
+                .then(function (response) {
+                    setDataProduct(response.data.data);
+                    setLoading(false);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }, 2000);
+    }, [idDM]);
+    // const handleFilter = (e) => {
+    //     const data = dataProduct2.filter((product) => product?.name?.toLowerCase()?.includes(e.toLowerCase()));
+    //     setDataProduct(data);
+    // };
     return (
         <div className={cx('wrapper')}>
             <h2>EVERYDAY WEAR - THOẢI MÁI, TỰ TIN MỌI LÚC MỌI NƠI</h2>
             <div className={cx('wrapper-btn')}>
-                {buttoncheck.map((item, index) => (
+                {productCategoryList.map((item) => (
                     <Button
-                        key={index}
+                        key={item.idDM}
                         primary
+                        style={
+                            idDM === item.idDM
+                                ? {
+                                      backgroundColor: '#fcaf17',
+                                      color: '#fff',
+                                  }
+                                : {}
+                        }
                         onClick={() => {
-                            handleFilter(item);
+                            setIdDM(item.idDM);
+                            setLoading(!loading);
                         }}
                     >
-                        {item}
+                        {item.name}
                     </Button>
                 ))}
             </div>
-            <div className={cx('wrapper-product')}>
-                {dataProduct.map((product) => (
-                    <Product key={product.idSP} data={product} />
-                ))}
-            </div>
-            <div className={cx('btn-all')}>
-                <Button to={'abc'} background>
-                    Xem Thêm
-                </Button>
-            </div>
+            {loading ? (
+                <LoadingIcon />
+            ) : (
+                <>
+                    <div className={cx('wrapper-product')}>
+                        {dataProduct.map((product) => (
+                            <Product key={product.idSP} data={product} />
+                        ))}
+                    </div>
+                    <div className={cx('btn-all')}>
+                        <Button to={'abc'} background>
+                            Xem Thêm
+                        </Button>
+                    </div>
+                </>
+            )}
         </div>
     );
 }
