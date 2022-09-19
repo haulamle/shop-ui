@@ -59,6 +59,7 @@ function Search() {
                 console.log(error);
                 setLoading(false);
             });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [debounce]);
 
     return (
@@ -72,7 +73,7 @@ function Search() {
                         {searchResult.map((result) => (
                             <ProductItem key={result.idSP} data={result} />
                         ))}
-                        <Link to={`/search`} className={cx('btn-search-show-all')} href="abc">
+                        <Link to={`/search/${debounce}`} className={cx('btn-search-show-all')} href="abc">
                             Xem tất cả ({totalProduct})
                         </Link>
                     </PopperWrapper>
@@ -96,9 +97,9 @@ function Search() {
                 )}
                 {loading && <FontAwesomeIcon className={cx('loading-btn')} icon={faSpinner} />}
 
-                <button className={cx('search-btn')}>
+                <Link to={`/search/${debounce}`} className={cx('search-btn')}>
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
-                </button>
+                </Link>
             </div>
         </Tippy>
     );

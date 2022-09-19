@@ -29,6 +29,7 @@
                 display: block;
                 padding: 4px 0;
                 font-weight: 400;
+                color: var(--while);
             }
         }
     }
@@ -45,12 +46,14 @@
                 display: block;
                 padding: 4px 0;
                 font-weight: 400;
+                color: var(--while);
             }
         }
     }
     .contact {
         font-size: 1.4rem;
         width: 30%;
+
         .wrap-contact {
             display: flex;
             align-items: center;
@@ -60,6 +63,9 @@
             + .wrap-contact {
                 margin-bottom: 14px;
             }
+            a {
+                color: var(--while);
+            }
         }
     }
 }
@@ -67,6 +73,7 @@
 .coppy-right {
     padding: 20px;
     background: #2a2a86 top center;
+    color: var(--while);
     span {
         border-top: 1px solid #6a6aaa;
         padding-top: 16px;
