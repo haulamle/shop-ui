@@ -27,18 +27,21 @@ function ListProduct() {
         },
     ];
     const [dataProduct, setDataProduct] = useState([]);
+    const [total, setTotal] = useState();
     const [idDM, setIdDM] = useState(1);
     const [loading, setLoading] = useState(true);
+    console.log(total);
     useEffect(() => {
         setTimeout(() => {
             axios
                 .get(`http://localhost:5000/product/catogory/${idDM}`, {
                     params: {
-                        limit: 20,
+                        limit: 17,
                     },
                 })
                 .then(function (response) {
                     setDataProduct(response.data.data);
+                    setTotal(response.data.total);
                     setLoading(false);
                 })
                 .catch(function (error) {
@@ -84,11 +87,15 @@ function ListProduct() {
                             <Product key={product.idSP} data={product} />
                         ))}
                     </div>
-                    <div className={cx('btn-all')}>
-                        <Button to={'abc'} background>
-                            Xem Thêm
-                        </Button>
-                    </div>
+                    {total >= 17 ? (
+                        <div className={cx('btn-all')}>
+                            <Button to={`/product/${idDM}`} background>
+                                Xem Thêm
+                            </Button>
+                        </div>
+                    ) : (
+                        <></>
+                    )}
                 </>
             )}
         </div>

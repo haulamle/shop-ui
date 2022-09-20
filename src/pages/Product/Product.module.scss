@@ -84,3 +84,27 @@
     flex-wrap: wrap;
     // justify-content: center;
 }
+
+// paging
+.btn-paging {
+    display: flex;
+    justify-content: center;
+    span {
+        display: inline-block;
+        margin: 0 4px 6px;
+        color: #7a7a9d;
+        border-radius: 4px;
+        width: 40px;
+        background-color: var(--while);
+        border: solid 1px #dde1ef;
+        text-align: center;
+        padding: 8px;
+        align-items: center;
+        font-size: 1.6rem;
+        cursor: pointer;
+        &:hover {
+            background-color: var(--primary);
+            color: var(--while);
+        }
+    }
+}

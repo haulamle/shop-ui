@@ -6,26 +6,35 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Product from '~/components/Product';
 import LoadingIcon from '~/components/Loading';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
 
 function ProductPage() {
+    const genderCheck = ['NAM', 'NỮ', 'TRẺ EM'];
+    const stt = [1, 2, 3, 4];
     const { id } = useParams();
     const [dataProduct, setDataProduct] = useState([]);
     const [dataProductFilter, setDataProductFilter] = useState([]);
     const [totalProduct, setTotalProduct] = useState();
+    const [litmit, setLimit] = useState(10);
+    const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(true);
-    console.log(loading);
+    // const [gender, setGender] = useState('');
+    console.log(dataProduct);
 
     useEffect(() => {
         setTimeout(() => {
             axios
                 .get(`http://localhost:5000/product/catogory/${id}`, {
-                    params: {},
+                    params: {
+                        limit: litmit,
+                        page: page,
+                    },
                 })
                 .then(function (response) {
                     setDataProduct(response.data.data);
-                    setDataProductFilter(response.data.data);
                     setTotalProduct(response.data.total);
                     setLoading(false);
                 })
@@ -34,7 +43,39 @@ function ProductPage() {
                 });
         }, 2000);
         // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [page]);
+    useEffect(() => {
+        axios
+            .get(`http://localhost:5000/product/catogory/${id}`, {
+                params: {},
+            })
+            .then(function (response) {
+                setDataProductFilter(response.data.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+    const handlerArrowLeftPage = () => {
+        if (page === 1) {
+            return;
+        } else {
+            setPage(page - 1);
+        }
+        setLoading(!loading);
+    };
+    // console.log(page);
+    // console.log(litmit);
+
+    const handlerArrowRightPage = () => {
+        if (page === stt.length) {
+            return;
+        } else {
+            setPage(page + 1);
+        }
+        setLoading(!loading);
+    };
     const handleFilter = (e) => {
         const data = dataProductFilter.filter((product) => product?.name?.toLowerCase()?.includes(e.toLowerCase()));
         setDataProduct(data);
@@ -52,33 +93,27 @@ function ProductPage() {
             </div>
             <h1>SẢN PHẨM CỦA YODY</h1>
             <div className={cx('wrap-btn')}>
-                <Button
-                    primary
-                    onClick={() => {
-                        handleFilter('NAM');
-                        setLoading(!loading);
-                    }}
-                >
-                    NAM
-                </Button>
-                <Button
-                    primary
-                    onClick={() => {
-                        handleFilter('NỮ');
-                        setLoading(!loading);
-                    }}
-                >
-                    NỮ
-                </Button>
-                <Button
-                    primary
-                    onClick={() => {
-                        handleFilter('TRẺ EM');
-                        setLoading(!loading);
-                    }}
-                >
-                    TRẺ EM
-                </Button>
+                {genderCheck.map((value, index) => (
+                    <Button
+                        key={index}
+                        // style={
+                        //     value === gender
+                        //         ? {
+                        //               backgroundColor: '#fcaf17',
+                        //               color: '#fff',
+                        //           }
+                        //         : {}
+                        // }
+                        primary
+                        onClick={() => {
+                            handleFilter(value);
+                            setLoading(!loading);
+                            // setGender(value);
+                        }}
+                    >
+                        {value}
+                    </Button>
+                ))}
             </div>
             <div className={cx('wrap-container')}>
                 <div className={cx('selective')}>
@@ -90,7 +125,7 @@ function ProductPage() {
                 </div>
                 <div className={cx('wrap')}>
                     <div className={cx('wrap-title')}>
-                        <span className={cx('total-product')}>{totalProduct} sản Phẩm</span>
+                        <span className={cx('total-product')}>{totalProduct} Sản Phẩm</span>
                         <div className={cx('wrapper-sort')}>
                             Sắp Xếp Theo <span className={cx('sort')}>Mặc định</span>
                         </div>
@@ -104,6 +139,39 @@ function ProductPage() {
                             ))}
                         </div>
                     )}
+                    {totalProduct <= 10 ? (
+                        <></>
+                    ) : (
+                        <div className={cx('btn-paging')}>
+                            <span onClick={handlerArrowLeftPage}>
+                                <FontAwesomeIcon fontSize={16} icon={faArrowLeft} />
+                            </span>
+                            {stt.map((value, index) => (
+                                <span
+                                    key={index}
+                                    style={
+                                        value === page
+                                            ? {
+                                                  backgroundColor: '#fcaf17',
+                                                  color: '#fff',
+                                              }
+                                            : {}
+                                    }
+                                    onClick={() => {
+                                        setPage(value);
+                                        setLimit(10);
+                                        setLoading(!loading);
+                                    }}
+                                >
+                                    {value}
+                                </span>
+                            ))}
+                            <span onClick={handlerArrowRightPage}>
+                                <FontAwesomeIcon fontSize={16} icon={faArrowRight} />
+                            </span>
+                        </div>
+                    )}
+                    {totalProduct === 0 ? <h1>Không Có Sản Phẩm Tồn Tại</h1> : <></>}
                 </div>
             </div>
         </div>
