@@ -20,6 +20,7 @@ import Search from './Search';
 const cx = classNames.bind(styles);
 
 function Header() {
+    const userCurrent = JSON.parse(localStorage.getItem('dataUser'));
     const actionList = [
         {
             title: 'tài khoản của tôi',
@@ -34,8 +35,6 @@ function Header() {
             href: '/account',
         },
     ];
-    const user = false;
-
     const productFemale = [
         {
             trouser: 'Quần Jean Nữ',
@@ -125,7 +124,7 @@ function Header() {
                     <Search />
                     {/* login */}
                     <div className={cx('action')}>
-                        {user ? (
+                        {userCurrent ? (
                             <>
                                 <Tippy
                                     interactive
@@ -133,7 +132,7 @@ function Header() {
                                         <div className={cx('list-user')} tabIndex="-1" {...attrs}>
                                             <PopperWrapper>
                                                 <div className={cx('wrap-list')}>
-                                                    <span>Hậu Lâmle</span>
+                                                    <span>{userCurrent.account}</span>
                                                     {actionList.map((data, index) => {
                                                         return (
                                                             <Link
@@ -145,10 +144,14 @@ function Header() {
                                                             </Link>
                                                         );
                                                     })}
-                                                    <Link className={cx('btn-logout')} to="/logout">
+                                                    <a
+                                                        className={cx('btn-logout')}
+                                                        onClick={() => localStorage.removeItem('dataUser')}
+                                                        href="/"
+                                                    >
                                                         <FontAwesomeIcon icon={faArrowRightFromBracket} />
                                                         Đăng Xuất
-                                                    </Link>
+                                                    </a>
                                                 </div>
                                             </PopperWrapper>
                                         </div>
