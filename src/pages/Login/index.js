@@ -6,6 +6,10 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import Button from '~/components/Button';
 import axios from 'axios';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const cx = classNames.bind(styles);
 
 function Login() {
@@ -33,14 +37,27 @@ function Login() {
                     a.push(receiveddata);
                     localStorage.setItem('dataUser', a);
                     if (response.data.role === 0) {
-                        navigate('/admin');
+                        toast.success('Success Notification !', {
+                            position: toast.POSITION.TOP_RIGHT,
+                        });
+                        setTimeout(() => {
+                            navigate('/admin');
+                        }, 3000);
                     } else {
-                        navigate('/');
+                        toast.success('Success Notification !', {
+                            position: toast.POSITION.TOP_RIGHT,
+                        });
+                        setTimeout(() => {
+                            navigate('/');
+                        }, 3000);
                     }
                 })
                 .catch(function (error) {
                     if (error.response) {
                         setMsgErr(error.response.data.msg);
+                        toast.error('Error Notification !', {
+                            position: toast.POSITION.TOP_RIGHT,
+                        });
                     }
                 });
         }
@@ -70,6 +87,7 @@ function Login() {
                     <Button background>Đăng Nhập</Button>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 }

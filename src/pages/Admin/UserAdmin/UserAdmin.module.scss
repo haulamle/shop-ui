@@ -1,0 +1,88 @@
+.wrapper {
+    margin: 50px 0 0 256px;
+    background-color: #f7f8fc;
+    height: 100vh;
+}
+.container {
+    padding: 16px;
+}
+
+.list-user {
+    margin-top: 20px;
+    padding: 26px;
+    height: 100vh;
+    background-color: #ffffff;
+    border: 1px solid #dfe0eb;
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+}
+
+.btn-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--while);
+}
+
+.action-edit {
+    font-size: 1.2rem;
+    padding: 4px 10px;
+    border: 1px solid blue;
+    display: block;
+    margin-right: 6px;
+    border-radius: 4px;
+}
+
+.action-delete {
+    font-size: 1.2rem;
+
+    border: 1px solid red;
+    padding: 6px 11px;
+    display: block;
+    border-radius: 4px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+// edit
+
+.wrap-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .group-input {
+        font-size: 1.6rem;
+        margin-bottom: 16px;
+
+        span {
+            display: inline-block;
+            color: var(--black);
+            font-weight: 400;
+            width: 100px;
+        }
+        input {
+            margin-left: 10px;
+            border: 1px solid var(--primary);
+            padding: 6px 10px;
+            width: 300px;
+            border-radius: 4px;
+        }
+    }
+}
+.btn-edit {
+    color: var(--black);
+    font-size: 1.6rem;
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: 1px solid var(--primary);
+    background-color: transparent;
+    cursor: pointer;
+    &:hover {
+        background-color: var(--primary);
+        color: var(--while);
+    }
+}

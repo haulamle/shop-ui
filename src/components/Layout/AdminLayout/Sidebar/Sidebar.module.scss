@@ -32,7 +32,7 @@
         color: var(--while);
     }
     &:hover {
-        background-color: var(--while);
+        background-color: var(--primary);
         color: #363740;
         border-radius: 6px;
         span {
@@ -52,4 +52,8 @@
     padding: 10px;
     border: 1px solid #dfe0eb;
     border-radius: 4px;
+    &:hover {
+        background-color: var(--primary);
+        color: #363740;
+    }
 }

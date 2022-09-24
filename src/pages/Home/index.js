@@ -2,7 +2,6 @@ import classNames from 'classnames/bind';
 import styles from './Home.module.scss';
 import { Category, ListProduct, ListService, TrendSearch } from './components';
 import { SliderPanner } from '~/components/Slider';
-import Button from '~/components/Button';
 
 const cx = classNames.bind(styles);
 

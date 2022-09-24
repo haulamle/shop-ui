@@ -1,11 +1,14 @@
 import classNames from 'classnames/bind';
+import { Link } from 'react-router-dom';
 import styles from './Header.module.scss';
 const cx = classNames.bind(styles);
 
 function Header() {
     return (
         <div className={cx('wrappper')}>
-            <h1 className={cx('title')}>Trang Chủ</h1>
+            <Link to="/admin" className={cx('title')}>
+                Trang Chủ
+            </Link>
             <div className={cx('user-admin')}>
                 <span>Admin</span>
                 <img

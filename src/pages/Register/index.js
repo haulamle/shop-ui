@@ -6,6 +6,9 @@ import Button from '~/components/Button';
 import { useState } from 'react';
 import axios from 'axios';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const cx = classNames.bind(styles);
 
 function Register() {
@@ -47,10 +50,16 @@ function Register() {
             })
                 .then(function (response) {
                     setResult(response.data.msg);
+                    toast.success('Success Notification !', {
+                        position: toast.POSITION.TOP_RIGHT,
+                    });
                 })
                 .catch(function (error) {
                     if (error.response) {
                         setMsgErr(error.response.data.msg);
+                        toast.error('Error Notification !', {
+                            position: toast.POSITION.TOP_RIGHT,
+                        });
                     }
                 });
         }
@@ -102,6 +111,7 @@ function Register() {
                     <Button background>Đăng Ký</Button>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 }

@@ -36,10 +36,10 @@ function Sidebar() {
     ];
     return (
         <div className={cx('wrappper')}>
-            <div className={cx('dashboard')}>
+            <Link to="/admin" className={cx('dashboard')}>
                 <FontAwesomeIcon fontSize={20} icon={faGaugeHigh} />
                 <h1>Dashboard</h1>
-            </div>
+            </Link>
             <div className={cx('wrap-event')}>
                 {listdata.map((item, index) => (
                     <Link to={item.to} key={index} className={cx('tilte-event')}>
