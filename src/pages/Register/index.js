@@ -13,7 +13,6 @@ const cx = classNames.bind(styles);
 
 function Register() {
     const [msgErr, setMsgErr] = useState('');
-    const [result, setResult] = useState();
     const [shPassword, setShPassword] = useState(false);
     const [shConfirm, setShConfirm] = useState(false);
     const [email, setEmail] = useState('');
@@ -49,7 +48,8 @@ function Register() {
                 },
             })
                 .then(function (response) {
-                    setResult(response.data.msg);
+                    console.log(response.data.msg);
+                    setMsgErr(response.data.msg);
                     toast.success('Success Notification !', {
                         position: toast.POSITION.TOP_RIGHT,
                     });
@@ -106,7 +106,7 @@ function Register() {
                 <div className={cx('input-register')}>
                     <input placeholder="Nhập Số Điện Thoại" onChange={(e) => setPhone(e.target.value)} />
                 </div>
-                <span className={cx('err-validate')}>{result ? result : msgErr}</span>
+                <span className={cx('err-validate')}>{msgErr}</span>
                 <div className={cx('btn-register')} onClick={handleSubmit}>
                     <Button background>Đăng Ký</Button>
                 </div>

@@ -77,6 +77,7 @@ function EditUser() {
                         <div className={cx('group-input')}>
                             <span>Tài Khoản</span>
                             <input
+                                disabled={true}
                                 placeholder="Nhập tài khoản"
                                 value={account}
                                 onChange={(e) => setAccount(e.target.value)}

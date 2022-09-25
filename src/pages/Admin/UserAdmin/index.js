@@ -26,9 +26,10 @@ function UserAdmin() {
                 getUser();
             })
             .catch(function (error) {
-                toast.error('Error Notification !', {
-                    position: toast.POSITION.TOP_RIGHT,
-                });
+                if (error.response)
+                    toast.error('Error Notification !', {
+                        position: toast.POSITION.TOP_RIGHT,
+                    });
             });
     };
     useEffect(() => {
@@ -55,7 +56,7 @@ function UserAdmin() {
         { field: 'password', headerName: 'Mật Khẩu', width: 140 },
         { field: 'phone', headerName: 'Số Điện Thoại', width: 80 },
         { field: 'email', headerName: 'Email', width: 120 },
-        { field: 'address', headerName: 'Địa Chỉ', width: 60 },
+        { field: 'address', headerName: 'Địa Chỉ', width: 70 },
         { field: 'status', headerName: 'Trạng Thái', width: 80 },
         { field: 'createdAt', headerName: 'CreatedAt', width: 160 },
         { field: 'updatedAt', headerName: 'UpdatedAt', width: 160 },
