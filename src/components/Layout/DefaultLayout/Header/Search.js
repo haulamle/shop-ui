@@ -36,7 +36,7 @@ function Search() {
         setShowResult(false);
     };
 
-    let limit;
+    let limit = 0;
     if (debounce) {
         limit = 4;
     }

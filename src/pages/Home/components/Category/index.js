@@ -27,7 +27,7 @@ function Category() {
                 {valueCategory.map((data) => (
                     <Link key={data.idDM} to={`/product/${data.idDM}`}>
                         <div className={cx('category-item')}>
-                            <img src={data.image} alt="" />
+                            <img src={data.url} alt="" />
                             <h3 className={cx('category-name')}>{data.name}</h3>
                         </div>
                     </Link>

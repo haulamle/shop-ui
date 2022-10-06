@@ -7,7 +7,7 @@ function Product({ data }) {
     return (
         <div className={cx('wrapper')}>
             <Link to={`/product-detail/${data.idSP}`} className={cx('product-img')}>
-                <img src={data.image} alt="" />
+                <img src={data.url} alt="" />
             </Link>
             <div className={cx('wrapper-content')}>
                 <h4 className={cx('title')}>{data.name}</h4>

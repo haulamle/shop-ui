@@ -102,7 +102,7 @@ function AdminDashBoard() {
             renderCell: (params) => {
                 return (
                     <div className={cx('wrap-product')}>
-                        <img src={params.row.image} alt="" />
+                        <img src={params.row.url} alt="" />
                         <span>{params.row.name}</span>
                     </div>
                 );

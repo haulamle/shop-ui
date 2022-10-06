@@ -24,14 +24,13 @@ function ProductDetail() {
         }
         setCount(count - 1);
     };
-    console.log(data);
     useEffect(() => {
         axios
             .get(`http://localhost:5000/product/${id}`, {
                 params: {},
             })
             .then(function (response) {
-                setData(response.data[0]);
+                setData(response.data);
             })
             .catch(function (error) {
                 console.log(error);
@@ -58,7 +57,7 @@ function ProductDetail() {
             </div>
             <div className={cx('product-detail')}>
                 <div className={cx('img-product')}>
-                    <img src={data.image} alt="" />
+                    <img src={data.url} alt="" />
                 </div>
                 <div className={cx('information')}>
                     <h1 className={cx('name-product')}>{data.name}</h1>

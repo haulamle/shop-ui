@@ -62,7 +62,7 @@
             display: inline-block;
             color: var(--black);
             font-weight: 400;
-            width: 100px;
+            min-width: 100px;
         }
         input {
             margin-left: 10px;

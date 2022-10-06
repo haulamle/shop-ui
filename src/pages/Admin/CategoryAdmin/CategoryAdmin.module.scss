@@ -1,0 +1,121 @@
+.wrapper {
+    margin: 50px 0 0 256px;
+    background-color: #f7f8fc;
+    height: 100vh;
+}
+.container {
+    padding: 16px;
+}
+.list-category {
+    margin-top: 20px;
+    padding: 26px;
+    background-color: #ffffff;
+    border: 1px solid #dfe0eb;
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+}
+
+.wrap-category {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+        width: 40px;
+        height: auto;
+    }
+    span {
+        margin-left: 10px;
+    }
+}
+
+.btn-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--while);
+}
+
+.btn-add {
+    display: inline-block;
+    color: var(--while);
+    margin-bottom: 10px;
+    background-color: #363740;
+
+    min-width: 140px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    transition: all 0.3s ease-in;
+    &:hover {
+        background-color: var(--primary);
+        color: var(--black);
+    }
+}
+
+.action-edit {
+    font-size: 1.2rem;
+    padding: 4px 10px;
+    border: 1px solid blue;
+    display: block;
+    margin-right: 6px;
+    border-radius: 4px;
+}
+
+.action-delete {
+    font-size: 1.2rem;
+
+    border: 1px solid red;
+    padding: 6px 11px;
+    display: block;
+    border-radius: 4px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+// edit
+
+.wrap-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .group-input {
+        font-size: 1.6rem;
+        margin-bottom: 16px;
+
+        span {
+            display: inline-block;
+            color: var(--black);
+            font-weight: 400;
+            min-width: 100px;
+        }
+        input {
+            margin-left: 10px;
+            border: 1px solid var(--primary);
+            padding: 6px 10px;
+            width: 300px;
+            border-radius: 4px;
+        }
+        input:nth-child(3) {
+            position: absolute;
+            margin-left: 0;
+            border: none;
+            padding: 6px 10px;
+        }
+    }
+}
+.btn-edit {
+    color: var(--black);
+    font-size: 1.6rem;
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: 1px solid var(--primary);
+    background-color: transparent;
+    cursor: pointer;
+    &:hover {
+        background-color: var(--primary);
+        color: var(--while);
+    }
+}
