@@ -18,19 +18,18 @@ function ListProduct() {
             idDM: 2,
         },
         {
-            name: 'QUẦN JEAN',
-            idDM: 6,
+            name: 'ÁO SƠ MI',
+            idDM: 3,
         },
         {
-            name: 'ĐỒ THỂ THAO',
-            idDM: 8,
+            name: 'ÁO KHOÁT',
+            idDM: 4,
         },
     ];
     const [dataProduct, setDataProduct] = useState([]);
     const [total, setTotal] = useState();
     const [idDM, setIdDM] = useState(1);
     const [loading, setLoading] = useState(true);
-    console.log(total);
     useEffect(() => {
         setTimeout(() => {
             axios

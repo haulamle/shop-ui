@@ -50,14 +50,14 @@ function Register() {
                 .then(function (response) {
                     console.log(response.data.msg);
                     setMsgErr(response.data.msg);
-                    toast.success('Success Notification !', {
+                    toast.success('Đăng Ký Thành Công Tài Khoản !', {
                         position: toast.POSITION.TOP_RIGHT,
                     });
                 })
                 .catch(function (error) {
                     if (error.response) {
                         setMsgErr(error.response.data.msg);
-                        toast.error('Error Notification !', {
+                        toast.error('Đăng Ký Thất Bại !', {
                             position: toast.POSITION.TOP_RIGHT,
                         });
                     }

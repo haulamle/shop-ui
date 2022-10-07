@@ -20,14 +20,14 @@ function UserAdmin() {
             url: `http://localhost:5000/user/${id}`,
         })
             .then(function (response) {
-                toast.success('Success Notification !', {
+                toast.success('Xoá Tài Khoản Thành Công !', {
                     position: toast.POSITION.TOP_RIGHT,
                 });
                 getUser();
             })
             .catch(function (error) {
                 if (error.response)
-                    toast.error('Error Notification !', {
+                    toast.error('Xoá Tài Khoản Thất Bại !', {
                         position: toast.POSITION.TOP_RIGHT,
                     });
             });

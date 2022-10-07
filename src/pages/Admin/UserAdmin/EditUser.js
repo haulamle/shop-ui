@@ -35,7 +35,7 @@ function EditUser() {
             },
         })
             .then(function (response) {
-                toast.success('Success Notification !', {
+                toast.success('Sửa Thông Tin Thành Công !', {
                     position: toast.POSITION.TOP_RIGHT,
                 });
                 setTimeout(() => {
@@ -43,7 +43,7 @@ function EditUser() {
                 }, 3000);
             })
             .catch(function (error) {
-                toast.error('Error Notification !', {
+                toast.error('Sửa Thông Tin Thất Bại !', {
                     position: toast.POSITION.TOP_RIGHT,
                 });
             });

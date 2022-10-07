@@ -46,14 +46,14 @@ function AddProduct() {
                     'Content-type': 'multipart/form-data',
                 },
             });
-            toast.success('Success Notification !', {
+            toast.success('Thêm Sản Phẩm Thành Công !', {
                 position: toast.POSITION.TOP_RIGHT,
             });
             setTimeout(() => {
                 navigate('/admin-product');
             }, 3000);
         } catch (error) {
-            toast.error('Error Notification !', {
+            toast.error('Thêm Sản Phẩm Thất Bại !', {
                 position: toast.POSITION.TOP_RIGHT,
             });
         }

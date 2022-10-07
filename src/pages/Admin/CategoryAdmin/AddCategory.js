@@ -34,14 +34,14 @@ function AddCategory() {
                     'Content-type': 'multipart/form-data',
                 },
             });
-            toast.success('Success Notification !', {
+            toast.success('Thêm Danh Mục Thành Công !', {
                 position: toast.POSITION.TOP_RIGHT,
             });
             setTimeout(() => {
                 navigate('/admin-category');
             }, 3000);
         } catch (error) {
-            toast.error('Error Notification !', {
+            toast.error('Thêm Danh Mục Thất Bại !', {
                 position: toast.POSITION.TOP_RIGHT,
             });
         }

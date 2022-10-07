@@ -37,14 +37,14 @@ function Login() {
                     a.push(receiveddata);
                     localStorage.setItem('dataUser', a);
                     if (response.data.role === 0) {
-                        toast.success('Success Notification !', {
+                        toast.success('Đăng Nhập Thành Công !', {
                             position: toast.POSITION.TOP_RIGHT,
                         });
                         setTimeout(() => {
                             navigate('/admin');
                         }, 3000);
                     } else {
-                        toast.success('Success Notification !', {
+                        toast.success('Đăng Nhập Thành Công !', {
                             position: toast.POSITION.TOP_RIGHT,
                         });
                         setTimeout(() => {
@@ -55,7 +55,7 @@ function Login() {
                 .catch(function (error) {
                     if (error.response) {
                         setMsgErr(error.response.data.msg);
-                        toast.error('Error Notification !', {
+                        toast.error('Đăng Nhập Thất Bại !', {
                             position: toast.POSITION.TOP_RIGHT,
                         });
                     }

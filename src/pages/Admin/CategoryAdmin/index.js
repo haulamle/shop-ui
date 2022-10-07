@@ -19,14 +19,14 @@ function CategoryAdmin() {
             url: `http://localhost:5000/category/${id}`,
         })
             .then(function (response) {
-                toast.success('Success Notification !', {
+                toast.success('Đã Xoá Danh Mục !', {
                     position: toast.POSITION.TOP_RIGHT,
                 });
                 getCategory();
             })
             .catch(function (error) {
                 if (error.response)
-                    toast.error('Error Notification !', {
+                    toast.error('Xoá Danh Mục Thất Bại !', {
                         position: toast.POSITION.TOP_RIGHT,
                     });
             });

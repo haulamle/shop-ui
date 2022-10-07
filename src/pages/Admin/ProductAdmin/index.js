@@ -19,14 +19,14 @@ function ProductAdmin() {
             url: `http://localhost:5000/product/${id}`,
         })
             .then(function (response) {
-                toast.success('Success Notification !', {
+                toast.success('Đã Xoá Sản Phẩm !', {
                     position: toast.POSITION.TOP_RIGHT,
                 });
                 getProduct();
             })
             .catch(function (error) {
                 if (error.response)
-                    toast.error('Error Notification !', {
+                    toast.error('Xoá Sản Phẩm Thất Bại !', {
                         position: toast.POSITION.TOP_RIGHT,
                     });
             });

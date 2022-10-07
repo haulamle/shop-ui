@@ -35,56 +35,7 @@ function Header() {
             href: '/account',
         },
     ];
-    const productFemale = [
-        {
-            trouser: 'Quần Jean Nữ',
-            shirt: 'Áo Thun Nữ',
-        },
-        {
-            trouser: 'Quần Âu Nữ',
-            shirt: 'Áo Thun Hoạ Tiết',
-        },
-        {
-            trouser: 'Quần Kaki Nữ',
-            shirt: 'Áo Polo Nữ',
-        },
-        {
-            trouser: 'Quần Short Nữ',
-            shirt: 'Áo Sơ Mi Nữ',
-        },
-        {
-            trouser: null,
-            shirt: 'Áo Khoát Nữ',
-        },
-        {
-            trouser: null,
-            shirt: 'Áo Len Nữ',
-        },
-    ];
-
-    const productMale = [
-        {
-            trouser: 'Quần Jean nam',
-            shirt: 'Áo Ba Lỗ nam',
-        },
-        {
-            trouser: 'Quần Âu nam',
-            shirt: 'Áo Vest',
-        },
-        {
-            trouser: 'Quần Kaki nam',
-            shirt: 'Áo Polo nam',
-        },
-        {
-            trouser: 'Quần Short nam',
-            shirt: 'Áo Sơ Mi nam',
-        },
-        {
-            trouser: null,
-            shirt: 'Áo Khoát nam',
-        },
-    ];
-
+    const category = ['Mua 2 Tặng 1', 'Nam', 'Nữ', 'Trẻ Em', 'Bộ Sưu Tập'];
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner-top')}>
@@ -186,152 +137,13 @@ function Header() {
                         />
                     </Link>
                     <ul>
-                        <li>
-                            <Link className={cx('category-link')} to="/">
-                                MUA 2 TẶNG 1
-                            </Link>
-                        </li>
-                        <Tippy
-                            interactive
-                            placement="top-start"
-                            render={(attrs) => (
-                                <div className={cx('list-category')} tabIndex="-1" {...attrs}>
-                                    <PopperWrapper>
-                                        <div className={cx('container-category')}>
-                                            <div className={cx('box-category')}>
-                                                <h1 className={cx('name-category')}>ÁO</h1>
-                                                <ul>
-                                                    {productFemale.map((item, index) => {
-                                                        return (
-                                                            <li key={index}>
-                                                                <a className={cx('product-category')} href="abc">
-                                                                    {item.shirt}
-                                                                </a>
-                                                            </li>
-                                                        );
-                                                    })}
-                                                </ul>
-                                            </div>
-                                            <div className={cx('box-category')}>
-                                                <h1 className={cx('name-category')}>QUẦN</h1>
-                                                <ul>
-                                                    {productFemale.map((item, index) => {
-                                                        return (
-                                                            <li key={index}>
-                                                                <a className={cx('product-category')} href="abc">
-                                                                    {item.trouser}
-                                                                </a>
-                                                            </li>
-                                                        );
-                                                    })}
-                                                </ul>
-                                            </div>
-                                            <div className={cx('box-category')}></div>
-                                            <div className={cx('box-category')}></div>
-                                            <div className={cx('box-category')}>
-                                                <div className={cx('category-img')}>
-                                                    <img
-                                                        src="https://bizweb.sapocdn.net/thumb/grande/100/438/408/themes/863105/assets/link_image_2_1.jpg?1663298001005"
-                                                        alt=""
-                                                    />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </PopperWrapper>
-                                </div>
-                            )}
-                        >
-                            <li>
+                        {category.map((data, index) => (
+                            <li key={index}>
                                 <Link className={cx('category-link')} to="/">
-                                    NỮ
+                                    {data}
                                 </Link>
                             </li>
-                        </Tippy>
-                        <Tippy
-                            interactive
-                            placement="top-start"
-                            render={(attrs) => (
-                                <div className={cx('list-category')} tabIndex="-1" {...attrs}>
-                                    <PopperWrapper>
-                                        <div className={cx('container-category')}>
-                                            <div className={cx('box-category')}>
-                                                <h1 className={cx('name-category')}>ÁO</h1>
-                                                <ul>
-                                                    {productMale.map((item, index) => {
-                                                        return (
-                                                            <li key={index}>
-                                                                <a className={cx('product-category')} href="abc">
-                                                                    {item.shirt}
-                                                                </a>
-                                                            </li>
-                                                        );
-                                                    })}
-                                                </ul>
-                                            </div>
-                                            <div className={cx('box-category')}>
-                                                <h1 className={cx('name-category')}>QUẦN</h1>
-                                                <ul>
-                                                    {productMale.map((item, index) => {
-                                                        return (
-                                                            <li key={index}>
-                                                                <a className={cx('product-category')} href="abc">
-                                                                    {item.trouser}
-                                                                </a>
-                                                            </li>
-                                                        );
-                                                    })}
-                                                </ul>
-                                            </div>
-                                            <div className={cx('box-category')}>
-                                                <h1 className={cx('name-category')}>QUẦN MẶC TRONG</h1>
-                                                <ul>
-                                                    <li>
-                                                        <a className={cx('product-category')} href="abc">
-                                                            Áo Thun
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a className={cx('product-category')} href="abc">
-                                                            Áo Thun
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a className={cx('product-category')} href="abc">
-                                                            Áo Thun
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div className={cx('box-category')}></div>
-                                            <div className={cx('box-category')}>
-                                                <div className={cx('category-img')}>
-                                                    <img
-                                                        src="https://bizweb.sapocdn.net/thumb/grande/100/438/408/themes/863105/assets/link_image_3_1.jpg?1663298001005"
-                                                        alt=""
-                                                    />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </PopperWrapper>
-                                </div>
-                            )}
-                        >
-                            <li>
-                                <Link className={cx('category-link')} to="/">
-                                    NAM
-                                </Link>
-                            </li>
-                        </Tippy>
-                        <li>
-                            <Link className={cx('category-link')} to="/">
-                                TRẺ EM
-                            </Link>
-                        </li>
-                        <li>
-                            <Link className={cx('category-link')} to="/">
-                                BỘ SƯU TẬP
-                            </Link>
-                        </li>
+                        ))}
                     </ul>
                 </div>
                 <Link to="/cart" className={cx('cart')}>

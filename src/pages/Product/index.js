@@ -21,8 +21,6 @@ function ProductPage() {
     const [litmit, setLimit] = useState(10);
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(true);
-    // const [gender, setGender] = useState('');
-    console.log(dataProduct);
 
     useEffect(() => {
         setTimeout(() => {
