@@ -1,0 +1,55 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #c4c4c4;
+    width: 100%;
+}
+.wrapper-img {
+    width: 15%;
+    height: 130px;
+    img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+.wrapper-name {
+    width: 54%;
+    a {
+        font-size: 1.4rem;
+        line-height: 18px;
+        display: block;
+        color: var(--black);
+    }
+}
+.wrapper-price {
+    width: 12%;
+    display: block;
+    font-size: 1.6rem;
+    color: #cd151c;
+    font-weight: 500;
+}
+.wrapper-action {
+    width: 14%;
+    button {
+        cursor: pointer;
+        width: 30px;
+        height: 27px;
+        background-color: var(--while);
+        border: 1px solid #7a7a9d;
+    }
+    span {
+        position: relative;
+        top: 2px;
+        display: inline-flex;
+        padding: 1px 14px 0px 14px;
+        border-bottom: 1px solid #7a7a9d;
+        border-top: 1px solid #7a7a9d;
+    }
+}
+.btn-clear {
+    cursor: pointer;
+    width: 5%;
+    background: url(//bizweb.dktcdn.net/100/438/408/themes/878697/assets/trash_new.svg?1665305647016) left center
+        no-repeat;
+}

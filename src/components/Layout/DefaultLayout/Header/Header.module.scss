@@ -6,8 +6,15 @@
     max-width: 1520px;
     padding: 0 10px;
     z-index: 10;
-    background-color: var(--while);
+    background: url(//bizweb.dktcdn.net/100/438/408/themes/878697/assets/background-header.png?1665305647016);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     border-bottom: 1px #dde1ef solid;
+}
+
+.wrapper-header {
+    margin: auto;
+    max-width: 1240px;
 }
 
 .inner-top {

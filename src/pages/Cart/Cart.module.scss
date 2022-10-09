@@ -1,4 +1,136 @@
 .wrapper {
-    margin-top: 100px;
-    min-height: 1000px;
+    margin-top: 140px;
+    display: flex;
+}
+
+.left-cart {
+    width: calc(100% - 400px);
+}
+
+.wrap-cart-total {
+    display: flex;
+    padding: 0 30px;
+    font-size: 1.6rem;
+    margin-bottom: 14px;
+    background: var(--while);
+    height: 40px;
+    line-height: 38px;
+    border-radius: 8px;
+    font-weight: 500;
+    span {
+        margin-left: 16px;
+        color: #7a7a9d;
+    }
+}
+
+.wrap-title {
+    display: flex;
+    padding: 0 30px;
+    font-size: 1.4rem;
+    margin-bottom: 13px;
+    background: var(--while);
+    height: 40px;
+    line-height: 38px;
+    border-radius: 8px;
+    font-weight: 500;
+    span:nth-child(1) {
+        width: 70%;
+        padding-left: 100px;
+    }
+    span:nth-child(2) {
+        width: 15%;
+    }
+    span:nth-child(3) {
+        width: 15%;
+    }
+}
+
+.wrapper-product {
+    background-color: var(--while);
+}
+
+.right-cart {
+    width: 400px;
+    margin-left: 20px;
+}
+
+.pay-product {
+    background: var(--while);
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.wrap-price-total {
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    p {
+        font-size: 1.4rem;
+    }
+    span {
+        font-size: 1.6rem;
+    }
+}
+.btn-pay {
+    margin-top: 10px;
+    width: 100%;
+    background-color: var(--primary);
+    color: var(--black);
+    text-align: center;
+    line-height: 40px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 1.6rem;
+    border-radius: 4px;
+}
+
+.wrapper-helt {
+    width: 400px;
+    background-color: #fff;
+    margin-top: 15px;
+    padding: 20px;
+    span {
+        background: url(//bizweb.dktcdn.net/100/438/408/themes/878697/assets/icon-tu-van.svg?1665305647016) left center
+            no-repeat;
+        padding-left: 30px;
+        margin-bottom: 10px;
+        font-size: 1.4rem;
+    }
+}
+
+// cart Empty
+.wrapper-cart-empty {
+    text-align: center;
+    color: #7a7a9d;
+    width: 100%;
+    margin-bottom: 30px;
+}
+.btn-login {
+    display: inline-block;
+    width: 340px;
+    border: 1px solid var(--primary);
+    background: var(--primary);
+    color: var(--while);
+    line-height: 46px;
+    border-radius: 4px;
+    margin: 10px;
+    font-size: 1.8rem;
+}
+
+.btn-buy-now {
+    display: block;
+    color: #7a7a9d;
+}
+
+// suggestion
+.suggestions {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--primary);
+}
+
+.wrapper-product {
+    display: flex;
+    flex-wrap: wrap;
 }
