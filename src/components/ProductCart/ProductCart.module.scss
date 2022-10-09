@@ -1,0 +1,61 @@
+.wrapper {
+    display: flex;
+    height: 120px;
+    margin-bottom: 10px;
+}
+.product-img {
+    width: 84px;
+    img {
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.product-info {
+    margin-left: 20px;
+}
+
+.btnClear {
+    position: relative;
+    top: 2px;
+    cursor: pointer;
+    color: #54546c;
+}
+
+.wrapper-name-btnClear {
+    display: flex;
+    a {
+        display: block;
+        width: 280px;
+        max-width: 300px;
+        font-size: 1.4rem;
+        color: var(--black);
+        margin-right: 30px;
+    }
+}
+
+.product-price {
+    font-size: 1.6rem;
+    color: var(--primary);
+}
+
+.wrap-action {
+    margin-top: 6px;
+    display: flex;
+    cursor: pointer;
+    button {
+        width: 36px;
+        height: 32px;
+        background-color: transparent;
+        border: 1px solid #7a7a9d;
+        cursor: pointer;
+    }
+    span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 32px;
+        border: 1px solid #7a7a9d;
+    }
+}

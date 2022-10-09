@@ -133,7 +133,7 @@ function ProductPage() {
                     ) : (
                         <div className={cx('wrapper-product')}>
                             {dataProduct.map((product) => (
-                                <Product key={product.idSP} data={product} />
+                                <Product key={product.id} data={product} />
                             ))}
                         </div>
                     )}

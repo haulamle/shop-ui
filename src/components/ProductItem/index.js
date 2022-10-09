@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const cx = classNames.bind(styles);
 function ProductItem({ data }) {
     return (
-        <Link to={`/product-detail/${data.idSP}`} className={cx('wrapper')}>
+        <Link to={`/product-detail/${data.id}`} className={cx('wrapper')}>
             <div className={cx('product-img')}>
                 <img src={data.url} alt="" />
             </div>

@@ -13,7 +13,7 @@ function ProductDetail() {
     const [count, setCount] = useState(1);
     const [dataProduct, setDataProduct] = useState([]);
     const handleCountRaise = () => {
-        if (count >= data.quantity) {
+        if (count >= data.amount) {
             return;
         }
         setCount(count + 1);
@@ -70,7 +70,7 @@ function ProductDetail() {
                         />
                     </div>
                     <span className={cx('size-product')}>Kích thước : {data.size} </span>
-                    <span className={cx('total-product')}>Còn {data.quantity} Sản Phẩm</span>
+                    <span className={cx('total-product')}>Còn {data.amount} Sản Phẩm</span>
                     <span className={cx('quantity-product')}>Chọn Số Lượng</span>
                     <div className={cx('action-quantity')}>
                         <button onClick={handleCountReduce} className={cx('btn-subtraction')}>
@@ -98,7 +98,7 @@ function ProductDetail() {
             <h1 className={cx('suggestions')}>CÓ THỂ BẠN MUỐN MUA</h1>
             <div className={cx('wrapper-product')}>
                 {dataProduct.map((product) => (
-                    <Product key={product.idSP} data={product} />
+                    <Product key={product.id} data={product} />
                 ))}
             </div>
         </div>

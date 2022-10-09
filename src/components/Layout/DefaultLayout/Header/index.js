@@ -7,7 +7,6 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import styles from './Header.module.scss';
 import {
     faArrowRightFromBracket,
-    faBagShopping,
     faBolt,
     faChevronDown,
     faLocationDot,
@@ -16,6 +15,7 @@ import {
 
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import Search from './Search';
+import CartHeader from './CartHeader';
 
 const cx = classNames.bind(styles);
 
@@ -146,10 +146,7 @@ function Header() {
                         ))}
                     </ul>
                 </div>
-                <Link to="/cart" className={cx('cart')}>
-                    <FontAwesomeIcon fontSize={24} icon={faBagShopping} />
-                    <span>Giỏ Hàng</span>
-                </Link>
+                <CartHeader />
             </div>
         </header>
     );

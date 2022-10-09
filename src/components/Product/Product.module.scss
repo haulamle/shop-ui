@@ -33,18 +33,13 @@
         min-height: 40px;
     }
     .btn-buy {
-        font-size: 14px;
+        font-size: 1.4rem;
         padding: 4px 14px;
-        height: 26px;
-        border: 1px #dde1ef solid;
+        height: 40px;
+        color: #54546c;
         background-color: transparent;
         border-radius: 4px;
         cursor: pointer;
-        &:hover {
-            background-color: var(--primary);
-            color: var(--while);
-            border: 1px var(--primary) solid;
-        }
     }
 }
 

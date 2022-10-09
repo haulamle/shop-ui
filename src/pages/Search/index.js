@@ -41,7 +41,7 @@ function Search() {
             ) : (
                 <div className={cx('wrapper-product')}>
                     {searchResult.map((product) => (
-                        <Product key={product.idSP} data={product} />
+                        <Product key={product.id} data={product} />
                     ))}
                 </div>
             )}

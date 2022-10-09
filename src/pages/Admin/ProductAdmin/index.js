@@ -50,7 +50,7 @@ function ProductAdmin() {
     };
 
     const columns = [
-        { field: 'idSP', headerName: 'ID', width: 50 },
+        { field: 'id', headerName: 'ID', width: 50 },
         {
             field: 'product',
             headerName: 'Sản Phẩm',
@@ -70,7 +70,7 @@ function ProductAdmin() {
         { field: 'idDM', headerName: 'idDM', width: 60 },
         { field: 'priceDiscount', headerName: 'Giảm Giá', width: 80 },
         { field: 'size', headerName: 'size', width: 50 },
-        { field: 'quantity', headerName: 'Số Lượng', width: 80 },
+        { field: 'amount', headerName: 'Số Lượng', width: 80 },
         { field: 'createdAt', headerName: 'createdAt', width: 130 },
         { field: 'updatedAt', headerName: 'updatedAt', width: 130 },
         {
@@ -81,10 +81,10 @@ function ProductAdmin() {
             renderCell: (params) => {
                 return (
                     <div className={cx('btn-action')}>
-                        <Link to={`/admin-product/edit/${params.row.idSP}`} className={cx('action-edit')}>
+                        <Link to={`/admin-product/edit/${params.row.id}`} className={cx('action-edit')}>
                             Sửa
                         </Link>
-                        <button className={cx('action-delete')} onClick={() => deleteProduct(params.row.idSP)}>
+                        <button className={cx('action-delete')} onClick={() => deleteProduct(params.row.id)}>
                             Xoá
                         </button>
                     </div>
@@ -108,7 +108,7 @@ function ProductAdmin() {
                                 pageSize={5}
                                 rowsPerPageOptions={[5]}
                                 checkboxSelection
-                                getRowId={(row) => row.idSP}
+                                getRowId={(row) => row.id}
                             />
                         </div>
                     </div>

@@ -71,7 +71,7 @@ function Search() {
                 <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                     <PopperWrapper>
                         {searchResult.map((result) => (
-                            <ProductItem key={result.idSP} data={result} />
+                            <ProductItem key={result.id} data={result} />
                         ))}
                         <Link to={`/search/${debounce}`} className={cx('btn-search-show-all')} href="abc">
                             Xem tất cả ({totalProduct})

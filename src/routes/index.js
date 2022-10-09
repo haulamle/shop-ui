@@ -7,6 +7,9 @@ import Search from '~/pages/Search';
 import ProductPage from '~/pages/Product';
 import ProductDetail from '~/pages/ProductDetail';
 import Register from '~/pages/Register';
+import Cart from '~/pages/Cart';
+
+// Admin
 import { AdminDashBoard, UserAdmin, CategoryAdmin, InvoiceAdmin, ProductAdmin, StatisticAdmin } from '~/pages/Admin';
 import EditUser from '~/pages/Admin/UserAdmin/EditUser';
 import EditCategory from '~/pages/Admin/CategoryAdmin/EditCategory';
@@ -21,6 +24,7 @@ const publicRoutes = [
     { path: '/search/:type', component: Search },
     { path: '/login', component: Login },
     { path: '/register', component: Register },
+    { path: '/cart', component: Cart },
     //Admin
     { path: '/admin', component: AdminDashBoard, layout: AdminLayout },
     { path: '/admin-user', component: UserAdmin, layout: AdminLayout },

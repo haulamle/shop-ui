@@ -92,7 +92,7 @@ function AdminDashBoard() {
     };
 
     const columns = [
-        { field: 'idSP', headerName: 'IDSP', width: 60 },
+        { field: 'id', headerName: 'id', width: 60 },
         {
             field: 'product',
             headerName: 'product',
@@ -111,7 +111,7 @@ function AdminDashBoard() {
         { field: 'price', headerName: 'Price', width: 100 },
         { field: 'priceDiscount', headerName: 'PriceDiscount', width: 100 },
         { field: 'size', headerName: 'Size', width: 90 },
-        { field: 'quantity', headerName: 'Quantity', width: 90 },
+        { field: 'amount', headerName: 'amount', width: 90 },
         { field: 'createdAt', headerName: 'CreatedAt', width: 170 },
         { field: 'updatedAt', headerName: 'UpdatedAt', width: 200 },
     ];
@@ -138,7 +138,7 @@ function AdminDashBoard() {
                             pageSize={5}
                             rowsPerPageOptions={[5]}
                             checkboxSelection
-                            getRowId={(row) => row.idSP}
+                            getRowId={(row) => row.id}
                         />
                     </div>
                 </div>

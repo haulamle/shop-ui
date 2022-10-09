@@ -18,7 +18,7 @@ function EditProduct() {
     const [idDM, setIdDM] = useState('');
     const [priceDiscount, setPriceDiscount] = useState('');
     const [size, setSize] = useState('');
-    const [quantity, setQuantity] = useState('');
+    const [amount, setAmount] = useState('');
     const [file, setFile] = useState('');
     const [createdAt, setCreatedAt] = useState('');
     const [updatedAt, setUpdatedAt] = useState('');
@@ -37,7 +37,7 @@ function EditProduct() {
         formData.append('idDM', idDM);
         formData.append('priceDiscount', priceDiscount);
         formData.append('size', size);
-        formData.append('quantity', quantity);
+        formData.append('amount', amount);
 
         try {
             await axios.put(`http://localhost:5000/product/${id}`, formData, {
@@ -64,13 +64,13 @@ function EditProduct() {
                 params: {},
             })
             .then(function (response) {
-                setIdSP(response.data.idSP);
+                setIdSP(response.data.id);
                 setName(response.data.name);
                 setPrice(response.data.price);
                 setIdDM(response.data.idDM);
                 setPriceDiscount(response.data.priceDiscount);
                 setSize(response.data.size);
-                setQuantity(response.data.quantity);
+                setAmount(response.data.amount);
                 setFile(response.data.image);
                 setCreatedAt(response.data.createdAt);
                 setUpdatedAt(response.data.updatedAt);
@@ -146,8 +146,8 @@ function EditProduct() {
                             <span>Số Lượng</span>
                             <input
                                 placeholder="Nhập Số Lượng"
-                                value={quantity}
-                                onChange={(e) => setQuantity(e.target.value)}
+                                value={amount}
+                                onChange={(e) => setAmount(e.target.value)}
                             />
                         </div>
                         <div className={cx('group-input')}>
