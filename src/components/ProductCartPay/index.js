@@ -1,6 +1,7 @@
 import classNames from 'classnames/bind';
 import styles from './ProductCartPay.module.scss';
 import { useCart } from 'react-use-cart';
+import { Link } from 'react-router-dom';
 const cx = classNames.bind(styles);
 function ProductCartPay({ data }) {
     const { updateItemQuantity, removeItem } = useCart();
@@ -13,11 +14,11 @@ function ProductCartPay({ data }) {
     };
     return (
         <div className={cx('wrapper')}>
-            <a className={cx('wrapper-img')} href="abc">
+            <Link className={cx('wrapper-img')} to={`/product-detail/${data.id}`}>
                 <img src={data.url} alt="" />
-            </a>
+            </Link>
             <div className={cx('wrapper-name')}>
-                <a href="abc">{data.name}</a>
+                <Link to={`/product-detail/${data.id}`}>{data.name}</Link>
             </div>
             <div className={cx('wrapper-price')}>
                 <span>{data.price}đ</span>

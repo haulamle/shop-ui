@@ -3,15 +3,27 @@ import { useState, useEffect } from 'react';
 import Button from '~/components/Button';
 import styles from './ProductDetail.module.scss';
 import axios from 'axios';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import Product from '~/components/Product';
+
+import { useCart } from 'react-use-cart';
+
 const cx = classNames.bind(styles);
 
 function ProductDetail() {
+    const navigate = useNavigate();
+    const { addItem } = useCart();
+
     const { id } = useParams();
     const [data, setData] = useState([]);
     const [count, setCount] = useState(1);
     const [dataProduct, setDataProduct] = useState([]);
+
+    const handleBuy = () => {
+        addItem(data);
+        navigate('/cart');
+    };
+
     const handleCountRaise = () => {
         if (count >= data.amount) {
             return;
@@ -81,8 +93,12 @@ function ProductDetail() {
                             +
                         </button>
                     </div>
-                    <Button background>Mua Ngay</Button>
-                    <button className={cx('btn-add-cart')}>Thêm Vào Giỏ Hàng</button>
+                    <Button background onClick={() => handleBuy()}>
+                        Mua Ngay
+                    </Button>
+                    <button className={cx('btn-add-cart')} onClick={() => addItem(data)}>
+                        Thêm Vào Giỏ Hàng
+                    </button>
                     <div className={cx('identification')}>
                         <h1>Đặc điểm sản phẩm</h1>
                         <p>Sơ mi cộc tay nam kẻ caro được thiết kế trên chất liệu Bamboo</p>

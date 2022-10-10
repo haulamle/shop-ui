@@ -84,6 +84,7 @@ function Header() {
                                 <>
                                     <Tippy
                                         interactive
+                                        placement={'top-end'}
                                         render={(attrs) => (
                                             <div className={cx('list-user')} tabIndex="-1" {...attrs}>
                                                 <PopperWrapper>

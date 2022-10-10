@@ -74,8 +74,8 @@ function Cart() {
                             </div>
                             <div className={cx('wrapper-helt')}>
                                 <span>
-                                    Yên tâm thanh toán! Nhân viên tư vấn YODY sẽ gọi điện ngay để hỗ trợ bạn hoàn tiền
-                                    giảm giá
+                                    Yên tâm thanh toán! Nhân viên tư vấn sẽ gọi điện ngay để hỗ trợ bạn hoàn tiền giảm
+                                    giá
                                 </span>
                             </div>
                         </div>
