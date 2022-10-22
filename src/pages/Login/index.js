@@ -26,7 +26,7 @@ function Login() {
         } else {
             axios({
                 method: 'post',
-                url: 'http://localhost:5000/login',
+                url: `${process.env.REACT_APP_API_URL}login`,
                 data: {
                     account: account,
                     password: password,
@@ -40,16 +40,23 @@ function Login() {
                         toast.success('Đăng Nhập Thành Công !', {
                             position: toast.POSITION.TOP_RIGHT,
                         });
-                        setTimeout(() => {
+                        const navigationTime = setTimeout(() => {
                             navigate('/admin');
                         }, 3000);
+
+                        return () => {
+                            clearTimeout(navigationTime);
+                        };
                     } else {
                         toast.success('Đăng Nhập Thành Công !', {
                             position: toast.POSITION.TOP_RIGHT,
                         });
-                        setTimeout(() => {
+                        const navigationTime = setTimeout(() => {
                             navigate('/');
                         }, 3000);
+                        return () => {
+                            clearTimeout(navigationTime);
+                        };
                     }
                 })
                 .catch(function (error) {

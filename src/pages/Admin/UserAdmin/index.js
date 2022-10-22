@@ -17,7 +17,7 @@ function UserAdmin() {
     const deleteUser = (id) => {
         axios({
             method: 'DELETE',
-            url: `http://localhost:5000/user/${id}`,
+            url: `${process.env.REACT_APP_API_URL}user/${id}`,
         })
             .then(function (response) {
                 toast.success('Xoá Tài Khoản Thành Công !', {
@@ -39,7 +39,7 @@ function UserAdmin() {
 
     const getUser = () => {
         axios
-            .get('http://localhost:5000/user', {
+            .get(`${process.env.REACT_APP_API_URL}user`, {
                 params: {},
             })
             .then(function (response) {

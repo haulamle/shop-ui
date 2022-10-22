@@ -16,7 +16,7 @@ function ProductAdmin() {
     const deleteProduct = (id) => {
         axios({
             method: 'DELETE',
-            url: `http://localhost:5000/product/${id}`,
+            url: `${process.env.REACT_APP_API_URL}product/${id}`,
         })
             .then(function (response) {
                 toast.success('Đã Xoá Sản Phẩm !', {
@@ -38,7 +38,7 @@ function ProductAdmin() {
 
     const getProduct = () => {
         axios
-            .get('http://localhost:5000/product', {
+            .get(`${process.env.REACT_APP_API_URL}product`, {
                 params: {},
             })
             .then(function (response) {

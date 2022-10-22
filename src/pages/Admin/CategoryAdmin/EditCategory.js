@@ -31,7 +31,7 @@ function EditCategory() {
         formData.append('status', status);
 
         try {
-            await axios.put(`http://localhost:5000/category/${id}`, formData, {
+            await axios.put(`${process.env.REACT_APP_API_URL}category/${id}`, formData, {
                 headers: {
                     'Content-type': 'multipart/form-data',
                 },
@@ -39,9 +39,10 @@ function EditCategory() {
             toast.success('Cập Nhập Thành Công !', {
                 position: toast.POSITION.TOP_RIGHT,
             });
-            setTimeout(() => {
+            const navigateTime = setTimeout(() => {
                 navigate('/admin-category');
             }, 3000);
+            return () => clearTimeout(navigateTime);
         } catch (error) {
             toast.error('Cập Nhập Thất Bại !', {
                 position: toast.POSITION.TOP_RIGHT,
@@ -51,7 +52,7 @@ function EditCategory() {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:5000/category/${id}`, {
+            .get(`${process.env.REACT_APP_API_URL}category/${id}`, {
                 params: {},
             })
             .then(function (response) {

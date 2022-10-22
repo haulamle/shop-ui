@@ -38,7 +38,7 @@ function ProductDetail() {
     };
     useEffect(() => {
         axios
-            .get(`http://localhost:5000/product/${id}`, {
+            .get(`${process.env.REACT_APP_API_URL}product/${id}`, {
                 params: {},
             })
             .then(function (response) {
@@ -48,7 +48,7 @@ function ProductDetail() {
                 console.log(error);
             });
         axios
-            .get(`http://localhost:5000/product/catogory/1`, {
+            .get(`${process.env.REACT_APP_API_URL}product/catogory/1`, {
                 params: {
                     limit: 20,
                 },

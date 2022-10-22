@@ -23,9 +23,9 @@ function ProductPage() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        setTimeout(() => {
+        const dataTime = setTimeout(() => {
             axios
-                .get(`http://localhost:5000/product/catogory/${id}`, {
+                .get(`${process.env.REACT_APP_API_URL}product/catogory/${id}`, {
                     params: {
                         limit: litmit,
                         page: page,
@@ -40,11 +40,12 @@ function ProductPage() {
                     console.log(error);
                 });
         }, 2000);
+        return () => clearTimeout(dataTime);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [page]);
     useEffect(() => {
         axios
-            .get(`http://localhost:5000/product/catogory/${id}`, {
+            .get(`${process.env.REACT_APP_API_URL}product/catogory/${id}`, {
                 params: {},
             })
             .then(function (response) {
@@ -77,9 +78,10 @@ function ProductPage() {
     const handleFilter = (e) => {
         const data = dataProductFilter.filter((product) => product?.name?.toLowerCase()?.includes(e.toLowerCase()));
         setDataProduct(data);
-        setTimeout(() => {
+        const loadingTime = setTimeout(() => {
             setLoading(false);
         }, 1400);
+        return () => clearTimeout(loadingTime);
     };
     return (
         <div className={cx('wrapper')}>

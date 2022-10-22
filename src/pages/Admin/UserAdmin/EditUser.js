@@ -24,7 +24,7 @@ function EditUser() {
         e.preventDefault();
         axios({
             method: 'PUT',
-            url: `http://localhost:5000/user/${id}`,
+            url: `${process.env.REACT_APP_API_URL}user/${id}`,
             data: {
                 account: account,
                 password: password,
@@ -38,9 +38,10 @@ function EditUser() {
                 toast.success('Sửa Thông Tin Thành Công !', {
                     position: toast.POSITION.TOP_RIGHT,
                 });
-                setTimeout(() => {
+                const navigateTime = setTimeout(() => {
                     navigate('/admin-user');
                 }, 3000);
+                return () => clearTimeout(navigateTime);
             })
             .catch(function (error) {
                 toast.error('Sửa Thông Tin Thất Bại !', {
@@ -51,7 +52,7 @@ function EditUser() {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:5000/user/${id}`, {
+            .get(`${process.env.REACT_APP_API_URL}user/${id}`, {
                 params: {},
             })
             .then(function (response) {

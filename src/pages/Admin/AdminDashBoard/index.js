@@ -14,7 +14,7 @@ function AdminDashBoard() {
     const [totalUser, setTotalUser] = useState('');
     useEffect(() => {
         axios
-            .get('http://localhost:5000/product', {
+            .get(`${process.env.REACT_APP_API_URL}product`, {
                 params: {},
             })
             .then(function (response) {
@@ -26,7 +26,7 @@ function AdminDashBoard() {
             });
         // eslint-disable-next-line react-hooks/exhaustive-deps
         axios
-            .get('http://localhost:5000/user', {
+            .get(`${process.env.REACT_APP_API_URL}user`, {
                 params: {},
             })
             .then(function (response) {

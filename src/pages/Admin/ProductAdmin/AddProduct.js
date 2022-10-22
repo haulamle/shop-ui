@@ -41,7 +41,7 @@ function AddProduct() {
         formData.append('status', status);
 
         try {
-            await axios.post(`http://localhost:5000/product`, formData, {
+            await axios.post(`${process.env.REACT_APP_API_URL}product`, formData, {
                 headers: {
                     'Content-type': 'multipart/form-data',
                 },
@@ -49,9 +49,10 @@ function AddProduct() {
             toast.success('Thêm Sản Phẩm Thành Công !', {
                 position: toast.POSITION.TOP_RIGHT,
             });
-            setTimeout(() => {
+            const navigateTime = setTimeout(() => {
                 navigate('/admin-product');
             }, 3000);
+            return () => clearTimeout(navigateTime);
         } catch (error) {
             toast.error('Thêm Sản Phẩm Thất Bại !', {
                 position: toast.POSITION.TOP_RIGHT,
@@ -60,7 +61,7 @@ function AddProduct() {
     };
     useEffect(() => {
         axios
-            .get('http://localhost:5000/category', {
+            .get(`${process.env.REACT_APP_API_URL}category`, {
                 params: {},
             })
             .then(function (response) {

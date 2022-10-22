@@ -40,7 +40,7 @@ function EditProduct() {
         formData.append('amount', amount);
 
         try {
-            await axios.put(`http://localhost:5000/product/${id}`, formData, {
+            await axios.put(`${process.env.REACT_APP_API_URL}product/${id}`, formData, {
                 headers: {
                     'Content-type': 'multipart/form-data',
                 },
@@ -48,9 +48,10 @@ function EditProduct() {
             toast.success('Cập Nhập Thành Công !', {
                 position: toast.POSITION.TOP_RIGHT,
             });
-            setTimeout(() => {
+            const navigateTime = setTimeout(() => {
                 navigate('/admin-product');
             }, 3000);
+            return () => clearTimeout(navigateTime);
         } catch (error) {
             toast.error('Cập Nhập Thất Bại !', {
                 position: toast.POSITION.TOP_RIGHT,
@@ -60,7 +61,7 @@ function EditProduct() {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:5000/product/${id}`, {
+            .get(`${process.env.REACT_APP_API_URL}product/${id}`, {
                 params: {},
             })
             .then(function (response) {
@@ -80,7 +81,7 @@ function EditProduct() {
             });
 
         axios
-            .get('http://localhost:5000/category', {
+            .get(`${process.env.REACT_APP_API_URL}category`, {
                 params: {},
             })
             .then(function (response) {

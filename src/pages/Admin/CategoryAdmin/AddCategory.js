@@ -29,7 +29,7 @@ function AddCategory() {
         formData.append('status', status);
 
         try {
-            await axios.post(`http://localhost:5000/category`, formData, {
+            await axios.post(`${process.env.REACT_APP_API_URL}category`, formData, {
                 headers: {
                     'Content-type': 'multipart/form-data',
                 },
@@ -37,9 +37,10 @@ function AddCategory() {
             toast.success('Thêm Danh Mục Thành Công !', {
                 position: toast.POSITION.TOP_RIGHT,
             });
-            setTimeout(() => {
+            const navigateTime = setTimeout(() => {
                 navigate('/admin-category');
             }, 3000);
+            return () => clearTimeout(navigateTime);
         } catch (error) {
             toast.error('Thêm Danh Mục Thất Bại !', {
                 position: toast.POSITION.TOP_RIGHT,

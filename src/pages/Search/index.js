@@ -16,7 +16,7 @@ function Search() {
     // const type = location.pathname.split('/')[2];
     useEffect(() => {
         axios
-            .get('http://localhost:5000/product', {
+            .get(`${process.env.REACT_APP_API_URL}product`, {
                 params: {
                     q: q.type,
                 },

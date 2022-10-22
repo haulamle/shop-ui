@@ -16,7 +16,7 @@ function CategoryAdmin() {
     const deleteCategory = (id) => {
         axios({
             method: 'DELETE',
-            url: `http://localhost:5000/category/${id}`,
+            url: `${process.env.REACT_APP_API_URL}category/${id}`,
         })
             .then(function (response) {
                 toast.success('Đã Xoá Danh Mục !', {
@@ -38,7 +38,7 @@ function CategoryAdmin() {
 
     const getCategory = () => {
         axios
-            .get('http://localhost:5000/category', {
+            .get(`${process.env.REACT_APP_API_URL}category`, {
                 params: {},
             })
             .then(function (response) {

@@ -31,9 +31,9 @@ function ListProduct() {
     const [idDM, setIdDM] = useState(1);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        setTimeout(() => {
+        const dataTime = setTimeout(() => {
             axios
-                .get(`http://localhost:5000/product/catogory/${idDM}`, {
+                .get(`${process.env.REACT_APP_API_URL}product/catogory/${idDM}`, {
                     params: {
                         limit: 17,
                     },
@@ -47,6 +47,7 @@ function ListProduct() {
                     console.log(error);
                 });
         }, 2000);
+        return () => clearTimeout(dataTime);
     }, [idDM]);
     // const handleFilter = (e) => {
     //     const data = dataProduct2.filter((product) => product?.name?.toLowerCase()?.includes(e.toLowerCase()));

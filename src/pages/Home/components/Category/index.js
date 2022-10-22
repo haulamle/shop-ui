@@ -10,7 +10,7 @@ function Category() {
     const [valueCategory, setValueCategory] = useState([]);
     useEffect(() => {
         axios
-            .get('http://localhost:5000/category', {
+            .get(`${process.env.REACT_APP_API_URL}category`, {
                 params: {},
             })
             .then(function (response) {

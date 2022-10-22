@@ -15,7 +15,7 @@ function Cart() {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:5000/product/catogory/1`, {
+            .get(`${process.env.REACT_APP_API_URL}product/catogory/1`, {
                 params: {
                     limit: 20,
                 },

@@ -37,7 +37,7 @@ function Register() {
         } else {
             axios({
                 method: 'post',
-                url: 'http://localhost:5000/register',
+                url: `${process.env.REACT_APP_API_URL}register`,
                 data: {
                     account: account,
                     password: password,

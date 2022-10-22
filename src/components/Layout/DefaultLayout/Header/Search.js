@@ -44,7 +44,7 @@ function Search() {
     useEffect(() => {
         setLoading(true);
         axios
-            .get('http://localhost:5000/product', {
+            .get(`${process.env.REACT_APP_API_URL}product`, {
                 params: {
                     q: debounce,
                     limit: limit,
