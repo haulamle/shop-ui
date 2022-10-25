@@ -1,7 +1,7 @@
-import Header from './Header';
-import Footer from './Footer';
+import Header from '~/components/Layout/DefaultLayout/Header';
+import Footer from '~/components/Layout/DefaultLayout/Footer';
 import classNames from 'classnames/bind';
-import styles from './DefaultLayout.module.scss';
+import styles from './LoginLayout.module.scss';
 
 const cx = classNames.bind(styles);
 function LoginLayout({ children }) {

@@ -1,11 +1,10 @@
 import classNames from 'classnames/bind';
 import styles from './ProductItem.module.scss';
-import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 function ProductItem({ data }) {
     return (
-        <Link to={`/product-detail/${data.id}`} className={cx('wrapper')}>
+        <a href={`/product-detail/${data.id}`} className={cx('wrapper')}>
             <div className={cx('product-img')}>
                 <img src={data.url} alt="" />
             </div>
@@ -13,7 +12,7 @@ function ProductItem({ data }) {
                 <h4>{data.name}</h4>
                 <span>{data.price}đ</span>
             </div>
-        </Link>
+        </a>
     );
 }
 

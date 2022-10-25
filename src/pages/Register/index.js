@@ -27,24 +27,24 @@ function Register() {
             phone: '',
         },
         validationSchema: Yup.object({
-            email: Yup.string().email('Invalid Email').required('You must fill in this section!'),
+            email: Yup.string().email('Email Không hợp lệ !').required('Vui lòng không được để trống !'),
             account: Yup.string()
-                .min(5, 'Your name must be at least 5 character!')
-                .max(25, 'Your name must be under 25 character!')
-                .required('You must fill in this section!'),
-            address: Yup.string().required('You must fill in this section!'),
+                .min(5, 'Vui Lòng Nhập tối thiểu 6 ký tự chữ và có kí tự số !')
+                .max(25, 'Vui Lòng Nhập tối thiểu 25 ký tự chữ!')
+                .required('Vui lòng không được để trống !'),
+            address: Yup.string().required('Vui lòng không được để trống !'),
             password: Yup.string()
-                .min(8, 'Your password must be at least 5 character!')
-                .required('You must fill in this section!'),
+                .min(8, 'Vui Lòng Nhập tối thiểu 6 ký tự chữ và có kí tự số !')
+                .required('Vui lòng không được để trống !'),
             confirmPassword: Yup.string()
-                .oneOf([Yup.ref('password')], 'Password does not match!')
-                .required('You must fill in this section!'),
+                .oneOf([Yup.ref('password')], 'Password không khớp !')
+                .required('Vui lòng không được để trống !'),
             phone: Yup.number()
                 .typeError("That doesn't look like a phone number")
                 .positive("A phone number can't start with a minus")
                 .integer("A phone number can't include a decimal point")
                 .min(8)
-                .required('You must fill in this section!'),
+                .required('Vui lòng không được để trống !'),
         }),
         onSubmit: (values) => {
             axios({

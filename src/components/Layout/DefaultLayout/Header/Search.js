@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tippy from '@tippyjs/react/headless';
 
@@ -73,9 +72,9 @@ function Search() {
                         {searchResult.map((result) => (
                             <ProductItem key={result.id} data={result} />
                         ))}
-                        <Link to={`/search/${debounce}`} className={cx('btn-search-show-all')} href="abc">
+                        <a href={`/search/${debounce}`} className={cx('btn-search-show-all')}>
                             Xem tất cả ({totalProduct})
-                        </Link>
+                        </a>
                     </PopperWrapper>
                 </div>
             )}
@@ -97,9 +96,9 @@ function Search() {
                 )}
                 {loading && <FontAwesomeIcon className={cx('loading-btn')} icon={faSpinner} />}
 
-                <Link to={`/search/${debounce}`} className={cx('search-btn')}>
+                <a href={`/search/${debounce}`} className={cx('search-btn')}>
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
-                </Link>
+                </a>
             </div>
         </Tippy>
     );

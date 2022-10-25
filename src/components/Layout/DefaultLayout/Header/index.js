@@ -135,13 +135,13 @@ function Header() {
                 </div>
                 <div className={cx('inner-bottom')}>
                     <div className={cx('logo-category')}>
-                        <Link to="/" className={cx('logo')}>
+                        <a href="/" className={cx('logo')}>
                             <img
                                 className={cx('logo-img')}
                                 src="https://bizweb.sapocdn.net/100/438/408/themes/863105/assets/logo.svg?1663239091239"
                                 alt=""
                             />
-                        </Link>
+                        </a>
                         <ul>
                             {category.map((data, index) => (
                                 <li key={index}>
