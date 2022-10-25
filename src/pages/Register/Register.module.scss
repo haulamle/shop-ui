@@ -9,7 +9,7 @@
 }
 
 .container {
-    height: 640px;
+    height: 660px;
     max-width: 580px;
     padding: 40px 100px;
     background-color: white;
@@ -43,11 +43,12 @@
 }
 
 .btn-register {
-    margin-top: 40px;
     display: flex;
     justify-content: center;
 }
 .err-validate {
+    margin-top: -10px;
+    color: red;
     display: block;
-    text-align: center;
+    padding: 4px 0;
 }

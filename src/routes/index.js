@@ -1,5 +1,5 @@
 // Layout
-import { AdminLayout } from '~/components/Layout';
+import { AdminLayout, LoginLayout } from '~/components/Layout';
 
 import Home from '~/pages/Home';
 import Login from '~/pages/Login';
@@ -22,8 +22,8 @@ const publicRoutes = [
     { path: '/product/:id', component: ProductPage },
     { path: '/product-detail/:id', component: ProductDetail },
     { path: '/search/:type', component: Search },
-    { path: '/login', component: Login },
-    { path: '/register', component: Register },
+    { path: '/login', component: Login, layout: LoginLayout },
+    { path: '/register', component: Register, layout: LoginLayout },
     { path: '/cart', component: Cart },
     //Admin
     { path: '/admin', component: AdminDashBoard, layout: AdminLayout },
