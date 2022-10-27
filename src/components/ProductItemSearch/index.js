@@ -1,8 +1,8 @@
 import classNames from 'classnames/bind';
-import styles from './ProductItem.module.scss';
+import styles from './ProductItemSearch.module.scss';
 
 const cx = classNames.bind(styles);
-function ProductItem({ data }) {
+function ProductItemSearch({ data }) {
     return (
         <a href={`/product-detail/${data.id}`} className={cx('wrapper')}>
             <div className={cx('product-img')}>
@@ -16,4 +16,4 @@ function ProductItem({ data }) {
     );
 }
 
-export default ProductItem;
+export default ProductItemSearch;

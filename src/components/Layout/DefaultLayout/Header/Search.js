@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tippy from '@tippyjs/react/headless';
 
-import ProductItem from '~/components/ProductItem';
+import ProductItemSearch from '~/components/ProductItemSearch';
 import { useDebounce } from '~/hooks';
 
 import { Wrapper as PopperWrapper } from '~/components/Popper';
@@ -70,7 +70,7 @@ function Search() {
                 <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                     <PopperWrapper>
                         {searchResult.map((result) => (
-                            <ProductItem key={result.id} data={result} />
+                            <ProductItemSearch key={result.id} data={result} />
                         ))}
                         <a href={`/search/${debounce}`} className={cx('btn-search-show-all')}>
                             Xem tất cả ({totalProduct})

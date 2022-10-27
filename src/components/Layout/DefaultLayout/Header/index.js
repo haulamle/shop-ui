@@ -43,7 +43,7 @@ function Header() {
                     <div className={cx('introduce')}>
                         <ul>
                             <li>
-                                <a className={cx('introduce-link')} href="abc">
+                                <a className={cx('introduce-link')} href="/">
                                     <FontAwesomeIcon
                                         className={cx('introduce-icon')}
                                         fontSize={16}
@@ -55,14 +55,14 @@ function Header() {
                                 </a>
                             </li>
                             <li>
-                                <a className={cx('introduce-link')} href="abc">
+                                <a className={cx('introduce-link')} href="/">
                                     <FontAwesomeIcon className={cx('introduce-icon')} fontSize={16} icon={faPhone} />
                                     <b>1800 2086</b>
                                     <span>FREE</span>
                                 </a>
                             </li>
                             <li>
-                                <a className={cx('introduce-link')} href="abc">
+                                <a className={cx('introduce-link')} href="/">
                                     <FontAwesomeIcon
                                         color="#fcaf17"
                                         className={cx('introduce-icon')}

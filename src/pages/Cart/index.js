@@ -10,6 +10,7 @@ import axios from 'axios';
 
 const cx = classNames.bind(styles);
 function Cart() {
+    const userCurrent = JSON.parse(localStorage.getItem('dataUser'));
     const [dataProduct, setDataProduct] = useState([]);
     const { items, isEmpty, totalUniqueItems, cartTotal } = useCart();
 
@@ -37,9 +38,13 @@ function Cart() {
                             alt=""
                         />
                         <p>Giỏ Hàng Của Bạn Trống</p>
-                        <Link className={cx('btn-login')} to="/login">
-                            Đăng Nhập Để Mua Hàng
-                        </Link>
+                        {userCurrent ? (
+                            <></>
+                        ) : (
+                            <Link className={cx('btn-login')} to="/login">
+                                Đăng Nhập Để Mua Hàng
+                            </Link>
+                        )}
                         <span>
                             <Link className={cx('btn-buy-now')} to="/home">
                                 Mua Ngay

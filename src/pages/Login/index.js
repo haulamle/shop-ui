@@ -36,27 +36,33 @@ function Login() {
                     let receiveddata = JSON.stringify(response.data);
                     a.push(receiveddata);
                     localStorage.setItem('dataUser', a);
-                    if (response.data.role === 0) {
-                        toast.success('Đăng Nhập Thành Công !', {
-                            position: toast.POSITION.TOP_RIGHT,
-                        });
-                        const navigationTime = setTimeout(() => {
-                            navigate('/admin');
-                        }, 3000);
+                    if (response.data.status === 'Hoạt Động') {
+                        if (response.data.role === 0) {
+                            toast.success('Đăng Nhập Thành Công !', {
+                                position: toast.POSITION.TOP_RIGHT,
+                            });
+                            const navigationTime = setTimeout(() => {
+                                navigate('/admin');
+                            }, 3000);
 
-                        return () => {
-                            clearTimeout(navigationTime);
-                        };
+                            return () => {
+                                clearTimeout(navigationTime);
+                            };
+                        } else {
+                            toast.success('Đăng Nhập Thành Công !', {
+                                position: toast.POSITION.TOP_RIGHT,
+                            });
+                            const navigationTime = setTimeout(() => {
+                                navigate('/');
+                            }, 3000);
+                            return () => {
+                                clearTimeout(navigationTime);
+                            };
+                        }
                     } else {
-                        toast.success('Đăng Nhập Thành Công !', {
+                        toast.error('Tài Khoản Đã Bị Khoá !', {
                             position: toast.POSITION.TOP_RIGHT,
                         });
-                        const navigationTime = setTimeout(() => {
-                            navigate('/');
-                        }, 3000);
-                        return () => {
-                            clearTimeout(navigationTime);
-                        };
                     }
                 })
                 .catch(function (error) {
