@@ -3,6 +3,7 @@ import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tippy from '@tippyjs/react/headless';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
+import logo from '~/assets/images/logo.jpg';
 
 import styles from './Header.module.scss';
 import {
@@ -136,11 +137,7 @@ function Header() {
                 <div className={cx('inner-bottom')}>
                     <div className={cx('logo-category')}>
                         <a href="/" className={cx('logo')}>
-                            <img
-                                className={cx('logo-img')}
-                                src="https://bizweb.sapocdn.net/100/438/408/themes/863105/assets/logo.svg?1663239091239"
-                                alt=""
-                            />
+                            <img className={cx('logo-img')} src={logo} alt="" />
                         </a>
                         <ul>
                             {category.map((data, index) => (

@@ -33,7 +33,7 @@ function ProductCart({ data }) {
                         onClick={() => removeItem(data.id)}
                     />
                 </div>
-                <span className={cx('product-price')}>{data.price}</span>
+                <span className={cx('product-price')}>{data.price}đ</span>
                 <div className={cx('wrap-action')}>
                     <button onClick={() => updateItemQuantity(data.id, data.quantity - 1)}>-</button>
                     <span>{data.quantity}</span>

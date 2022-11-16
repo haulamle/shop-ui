@@ -9,13 +9,13 @@ function Footer() {
                 <div className={cx('evaluate')}>
                     <p>
                         “Đặt sự hài lòng của khách hàng là ưu tiên số 1 trong mọi suy nghĩ hành động của mình” là sứ
-                        mệnh, là triết lý, chiến lược.. luôn cùng YODY tiến bước”
+                        mệnh, là triết lý, chiến lược.. luôn cùng Fashion Shop tiến bước”
                     </p>
 
                     <h2>ĐĂNG KÝ NHẬN THÔNG TIN</h2>
                 </div>
                 <div className={cx('about-shop')}>
-                    <h2>VỀ YODY</h2>
+                    <h2>VỀ Fashion</h2>
                     <ul>
                         <li>
                             <a href="abc">Giới thiệu</a>
@@ -43,8 +43,8 @@ function Footer() {
                             alt=""
                         />
                         <p>
-                            Công ty cổ phần Thời trang YODY <br></br> Mã số thuế: 0801206940 <br></br>Địa chỉ: Đường An
-                            Định - Phường Việt Hòa - Thành phố Hải<br></br>Dương - Hải Dương
+                            Công ty cổ phần Thời trang Fashion Shop <br></br> Mã số thuế: 0801206940 <br></br>Địa chỉ:
+                            Đường Thanh Tân - Thanh Khê - Thành phố Đà<br></br>Nẵng - Đà Nẵng
                         </p>
                     </div>
                     <div className={cx('wrap-contact')}>
@@ -62,9 +62,9 @@ function Footer() {
                             alt=""
                         />
                         <p>
-                            <a href="abc">Liên hệ đặt hàng: 024 9996 6868</a>
-                            <a href="abc">Thắc mắc đơn hàng: 024 9996 6868</a>
-                            <a href="abc">Góp ý khiếu nại: 1800 2086</a>
+                            <a href="abc">Liên hệ đặt hàng: 0384 288 343</a>
+                            <a href="abc"> Thắc mắc đơn hàng: 0384 288 343</a>
+                            <a href="abc"> Góp ý khiếu nại: 0384 288 343</a>
                         </p>
                     </div>
                     <div className={cx('wrap-contact')}>
@@ -73,13 +73,13 @@ function Footer() {
                             alt=""
                         />
                         <p>
-                            <a href="abc">Email: chamsockhachhang@yody.vn</a>
+                            <a href="abc">Email: haulamle@gmail.com</a>
                         </p>
                     </div>
                 </div>
             </div>
             <div className={cx('coppy-right')}>
-                <span>@ Bản quyền thuộc về Yody.vn All right reserved</span>
+                <span>@ Bản quyền thuộc về Fashion.vn All right reserved</span>
             </div>
         </footer>
     );

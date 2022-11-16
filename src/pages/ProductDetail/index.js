@@ -107,7 +107,7 @@ function ProductDetail() {
                         <p>Họa tiết kẻ caro vô cùng tinh tế và sang trọng</p>
                         <p>Thép tay và cổ áo giữ phom trong thời gian dài</p>
                         <p>Sản phẩm phù hợp với nhiều độ tuổi khách hàng khác nhau</p>
-                        <p>YODY - Look good. Feel good.</p>
+                        <p>Fashion Shop - Look good. Feel good.</p>
                     </div>
                 </div>
             </div>

@@ -91,7 +91,7 @@ function ProductPage() {
             <div className={cx('action-btn')}>
                 <Link to="/">Trang chủ </Link> / <span>BỘ SƯU TẬP</span>
             </div>
-            <h1>SẢN PHẨM CỦA YODY</h1>
+            <h1>SẢN PHẨM CỦA Fashion Shop</h1>
             <div className={cx('wrap-btn')}>
                 {genderCheck.map((value, index) => (
                     <Button
