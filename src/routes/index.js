@@ -1,5 +1,5 @@
 // Layout
-import { AdminLayout, LoginLayout } from '~/components/Layout';
+import { AdminLayout, StaffLayout, LoginLayout } from '~/components/Layout';
 
 import Home from '~/pages/Home';
 import Login from '~/pages/Login';
@@ -41,6 +41,23 @@ const publicRoutes = [
     //
     { path: '/admin-invoice', component: InvoiceAdmin, layout: AdminLayout },
     { path: '/admin-statistical', component: StatisticAdmin, layout: AdminLayout },
+
+    //Staff
+    { path: '/staff', component: AdminDashBoard, layout: StaffLayout },
+    { path: '/staff-user', component: UserAdmin, layout: StaffLayout },
+    { path: '/staff-user/edit/:id', component: EditUser, layout: StaffLayout },
+    //Staff-category
+    { path: '/staff-category', component: CategoryAdmin, layout: StaffLayout },
+    { path: '/staff-category/edit/:id', component: EditCategory, layout: StaffLayout },
+    { path: '/staff-category/add', component: AddCategory, layout: StaffLayout },
+    //Admin-product
+    { path: '/staff-product', component: ProductAdmin, layout: StaffLayout },
+    { path: '/staff-product/edit/:id', component: EditProduct, layout: StaffLayout },
+    { path: '/staff-product/add', component: Addproduct, layout: StaffLayout },
+
+    //
+    { path: '/staff-invoice', component: InvoiceAdmin, layout: StaffLayout },
+    { path: '/staff-statistical', component: StatisticAdmin, layout: StaffLayout },
 ];
 
 export { publicRoutes };

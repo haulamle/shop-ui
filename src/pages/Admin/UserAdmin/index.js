@@ -58,6 +58,7 @@ function UserAdmin() {
         { field: 'email', headerName: 'Email', width: 120 },
         { field: 'address', headerName: 'Địa Chỉ', width: 70 },
         { field: 'status', headerName: 'Trạng Thái', width: 80 },
+        { field: 'role', headerName: 'Role', width: 80 },
         { field: 'createdAt', headerName: 'CreatedAt', width: 160 },
         { field: 'updatedAt', headerName: 'UpdatedAt', width: 160 },
         {

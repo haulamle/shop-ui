@@ -19,6 +19,7 @@ function EditUser() {
     const [address, setAddress] = useState('');
     const [status, setStatus] = useState('');
     const [phone, setphone] = useState();
+    const [role, setRole] = useState();
 
     const Update = (e) => {
         e.preventDefault();
@@ -62,6 +63,7 @@ function EditUser() {
                 setAddress(response.data[0].address);
                 setStatus(response.data[0].status);
                 setphone(response.data[0].phone);
+                setRole(response.data[0].role);
             })
             .catch(function (error) {
                 console.log(error);
@@ -111,6 +113,10 @@ function EditUser() {
                                 value={status}
                                 onChange={(e) => setStatus(e.target.value)}
                             />
+                        </div>
+                        <div className={cx('group-input')}>
+                            <span>Role</span>
+                            <input placeholder="Nhập role" value={role} onChange={(e) => setRole(e.target.value)} />
                         </div>
                         <div className={cx('group-input')}>
                             <span>Số Điện Thoại</span>

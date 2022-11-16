@@ -48,6 +48,18 @@ function Login() {
                             return () => {
                                 clearTimeout(navigationTime);
                             };
+                        }
+                        if (response.data.role === 2) {
+                            toast.success('Đăng Nhập Thành Công !', {
+                                position: toast.POSITION.TOP_RIGHT,
+                            });
+                            const navigationTime = setTimeout(() => {
+                                navigate('/staff');
+                            }, 3000);
+
+                            return () => {
+                                clearTimeout(navigationTime);
+                            };
                         } else {
                             toast.success('Đăng Nhập Thành Công !', {
                                 position: toast.POSITION.TOP_RIGHT,
