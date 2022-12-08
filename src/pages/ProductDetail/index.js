@@ -5,6 +5,8 @@ import styles from './ProductDetail.module.scss';
 import axios from 'axios';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import Product from '~/components/Product';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { useCart } from 'react-use-cart';
 
@@ -96,7 +98,15 @@ function ProductDetail() {
                     <Button background onClick={() => handleBuy()}>
                         Mua Ngay
                     </Button>
-                    <button className={cx('btn-add-cart')} onClick={() => addItem(data)}>
+                    <button
+                        className={cx('btn-add-cart')}
+                        onClick={() => {
+                            addItem(data);
+                            toast.success('Đã Thêm Vào Giỏ Hàng !', {
+                                position: toast.POSITION.TOP_RIGHT,
+                            });
+                        }}
+                    >
                         Thêm Vào Giỏ Hàng
                     </button>
                     <div className={cx('identification')}>
@@ -117,6 +127,7 @@ function ProductDetail() {
                     <Product key={product.id} data={product} />
                 ))}
             </div>
+            <ToastContainer />
         </div>
     );
 }

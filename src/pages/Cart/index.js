@@ -7,12 +7,22 @@ import { useCart } from 'react-use-cart';
 import { Link } from 'react-router-dom';
 import Product from '~/components/Product';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 function Cart() {
+    const navigate = useNavigate();
     const userCurrent = JSON.parse(localStorage.getItem('dataUser'));
     const [dataProduct, setDataProduct] = useState([]);
     const { items, isEmpty, totalUniqueItems, cartTotal } = useCart();
+    const handlePay = () => {
+        userCurrent ? navigate('/pay') : navigate('/login');
+        // if (userCurrent) {
+        //     navigate('/pay');
+        // } else {
+        //     navigate('/login');
+        // }
+    };
 
     useEffect(() => {
         axios
@@ -75,7 +85,9 @@ function Cart() {
                                     <p>Tổng đơn hàng (Tạm tính) :</p>
                                     <span>{cartTotal}.000 đ</span>
                                 </div>
-                                <button className={cx('btn-pay')}>Thanh Toán ({totalUniqueItems})</button>
+                                <button onClick={handlePay} className={cx('btn-pay')}>
+                                    Thanh Toán ({totalUniqueItems})
+                                </button>
                             </div>
                             <div className={cx('wrapper-helt')}>
                                 <span>

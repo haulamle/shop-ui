@@ -15,7 +15,7 @@ function Footer() {
                     <h2>ĐĂNG KÝ NHẬN THÔNG TIN</h2>
                 </div>
                 <div className={cx('about-shop')}>
-                    <h2>VỀ Fashion</h2>
+                    <h2>VỀ FASHION</h2>
                     <ul>
                         <li>
                             <a href="abc">Giới thiệu</a>

@@ -8,6 +8,7 @@ import ProductPage from '~/pages/Product';
 import ProductDetail from '~/pages/ProductDetail';
 import Register from '~/pages/Register';
 import Cart from '~/pages/Cart';
+import Pay from '~/pages/Pay';
 
 // Admin
 import { AdminDashBoard, UserAdmin, CategoryAdmin, InvoiceAdmin, ProductAdmin, StatisticAdmin } from '~/pages/Admin';
@@ -25,6 +26,7 @@ const publicRoutes = [
     { path: '/login', component: Login, layout: LoginLayout },
     { path: '/register', component: Register, layout: LoginLayout },
     { path: '/cart', component: Cart },
+    { path: '/pay', component: Pay, layout: null },
     //Admin
     { path: '/admin', component: AdminDashBoard, layout: AdminLayout },
     { path: '/admin-user', component: UserAdmin, layout: AdminLayout },

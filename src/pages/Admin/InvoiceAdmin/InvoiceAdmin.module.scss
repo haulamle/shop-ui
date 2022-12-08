@@ -1,0 +1,52 @@
+.wrapper {
+    margin: 50px 0 0 256px;
+    background-color: #f7f8fc;
+    height: 100vh;
+}
+.container {
+    padding: 16px;
+}
+.list-product {
+    margin-top: 20px;
+    padding: 26px;
+    background-color: #ffffff;
+    border: 1px solid #dfe0eb;
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+}
+
+.wrap-product {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+        width: 40px;
+        height: auto;
+    }
+    span {
+        margin-left: 10px;
+    }
+}
+
+.btn-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--while);
+}
+
+.action-approve {
+    min-width: 52px;
+    margin-right: 4px;
+    font-size: 1.2rem;
+    border: 1px solid rgb(93, 0, 255);
+    padding: 6px 4px;
+    display: block;
+    border-radius: 4px;
+    background-color: transparent;
+    cursor: pointer;
+}

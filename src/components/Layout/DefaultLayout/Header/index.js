@@ -24,16 +24,16 @@ function Header() {
     const userCurrent = JSON.parse(localStorage.getItem('dataUser'));
     const actionList = [
         {
-            title: 'tài khoản của tôi',
-            href: '/account',
+            title: 'Đơn Hàng Của Tôi',
+            href: '/myoder',
         },
         {
             title: 'Đổi Mật Khẩu',
-            href: '/account',
+            href: '/',
         },
         {
             title: 'Số Địa chỉ',
-            href: '/account',
+            href: '/',
         },
     ];
     const category = ['Mua 2 Tặng 1', 'Nam', 'Nữ', 'Trẻ Em', 'Bộ Sưu Tập'];
@@ -104,7 +104,10 @@ function Header() {
                                                         })}
                                                         <a
                                                             className={cx('btn-logout')}
-                                                            onClick={() => localStorage.removeItem('dataUser')}
+                                                            onClick={() => {
+                                                                localStorage.removeItem('dataUser');
+                                                                localStorage.removeItem('react-use-cart');
+                                                            }}
                                                             href="/"
                                                         >
                                                             <FontAwesomeIcon icon={faArrowRightFromBracket} />
