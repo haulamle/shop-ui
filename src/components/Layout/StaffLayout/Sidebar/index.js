@@ -31,7 +31,7 @@ function Sidebar() {
     ];
     return (
         <div className={cx('wrappper')}>
-            <Link to="/admin" className={cx('dashboard')}>
+            <Link to="/staff" className={cx('dashboard')}>
                 <FontAwesomeIcon fontSize={20} icon={faGaugeHigh} />
                 <h1>Dashboard</h1>
             </Link>

@@ -6,7 +6,7 @@ const cx = classNames.bind(styles);
 function Header() {
     return (
         <div className={cx('wrappper')}>
-            <Link to="/admin" className={cx('title')}>
+            <Link to="/staff" className={cx('title')}>
                 Trang Chủ
             </Link>
             <div className={cx('user-admin')}>

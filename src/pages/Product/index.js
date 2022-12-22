@@ -83,6 +83,7 @@ function ProductPage() {
         }, 1400);
         return () => clearTimeout(loadingTime);
     };
+    const type = ['Loại Sản Phẩm', 'Màu sắc', 'Kích Thước', 'Chất Liệu', 'Khoảng Giá'];
     return (
         <div className={cx('wrapper')}>
             <div className={cx('img-panner')}>
@@ -117,11 +118,9 @@ function ProductPage() {
             </div>
             <div className={cx('wrap-container')}>
                 <div className={cx('selective')}>
-                    <span>Loại Sản Phẩm</span>
-                    <span>Màu sắc</span>
-                    <span>Kích Thước</span>
-                    <span>Chất Liệu</span>
-                    <span>Khoảng Giá</span>
+                    {type.map((data, index) => (
+                        <span key={index}>{data}</span>
+                    ))}
                 </div>
                 <div className={cx('wrap')}>
                     <div className={cx('wrap-title')}>

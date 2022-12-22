@@ -54,7 +54,7 @@ const publicRoutes = [
     { path: '/staff-category', component: CategoryAdmin, layout: StaffLayout },
     { path: '/staff-category/edit/:id', component: EditCategory, layout: StaffLayout },
     { path: '/staff-category/add', component: AddCategory, layout: StaffLayout },
-    //Admin-product
+    //staff-product
     { path: '/staff-product', component: ProductAdmin, layout: StaffLayout },
     { path: '/staff-product/edit/:id', component: EditProduct, layout: StaffLayout },
     { path: '/staff-product/add', component: Addproduct, layout: StaffLayout },
