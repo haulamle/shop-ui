@@ -1,0 +1,122 @@
+.wrapper {
+    margin-top: 140px;
+    min-height: 700px;
+}
+
+.header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+    .wrap-link {
+        font-size: 1.4rem;
+        a {
+            padding: 0 8px;
+            color: var(--black);
+            &:hover {
+                color: var(--primary);
+            }
+        }
+    }
+    h1 {
+        font-size: 2rem;
+        color: var(--primary);
+    }
+}
+
+.block-account {
+    width: 290px;
+    height: 630px;
+    margin-right: 30px;
+    background: #fff;
+    .info {
+        text-align: center;
+        img {
+            padding: 30px 19px;
+        }
+    }
+
+    .btn-logout {
+        display: block;
+        width: 90%;
+        margin: auto;
+        line-height: 24px;
+        background: var(--primary);
+        color: var(--while);
+        border-radius: 12px;
+        margin-bottom: 30px;
+    }
+}
+
+.container {
+    display: flex;
+}
+
+.wrap-infomation-info {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    text-align: left;
+    font-size: 1.4rem;
+    color: var(--black);
+    cursor: pointer;
+    .icon-order {
+        position: relative;
+        padding: 0 16px;
+        top: -2px;
+    }
+    &:hover {
+        background-color: #feeeea;
+        color: var(--primary);
+    }
+}
+
+.info-action {
+    width: calc(100% - 290px);
+    .box-title {
+        background: var(--while);
+        width: 100%;
+    }
+    h1 {
+        display: flex;
+        justify-content: space-between;
+        color: #fcaf17;
+        font-size: 1.6rem;
+        border-bottom: 1px solid #dde1ef;
+        padding: 18px 64px;
+        margin: 0;
+        position: relative;
+        margin-bottom: 20px;
+        font-weight: 600;
+        span {
+            color: #7a7a9d;
+        }
+    }
+    .table-infor {
+        display: flex;
+        justify-content: space-around;
+        span {
+            font-weight: 500;
+            font-size: 1.4rem;
+            padding: 0 40px;
+        }
+    }
+    .container-infor {
+        margin-top: 16px;
+        width: 100%;
+        background-color: var(--while);
+    }
+}
+
+.wrap-product {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+        width: 40px;
+        height: auto;
+    }
+    span {
+        margin-left: 10px;
+    }
+}

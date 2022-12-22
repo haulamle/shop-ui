@@ -9,6 +9,7 @@ import ProductDetail from '~/pages/ProductDetail';
 import Register from '~/pages/Register';
 import Cart from '~/pages/Cart';
 import Pay from '~/pages/Pay';
+import Myoder from '~/pages/Myoder';
 
 // Admin
 import { AdminDashBoard, UserAdmin, CategoryAdmin, InvoiceAdmin, ProductAdmin, StatisticAdmin } from '~/pages/Admin';
@@ -27,6 +28,7 @@ const publicRoutes = [
     { path: '/register', component: Register, layout: LoginLayout },
     { path: '/cart', component: Cart },
     { path: '/pay', component: Pay, layout: null },
+    { path: '/myoder', component: Myoder },
     //Admin
     { path: '/admin', component: AdminDashBoard, layout: AdminLayout },
     { path: '/admin-user', component: UserAdmin, layout: AdminLayout },

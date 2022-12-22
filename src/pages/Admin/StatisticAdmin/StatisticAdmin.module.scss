@@ -9,9 +9,22 @@
 }
 
 .chart {
+    display: flex;
     margin-top: 20px;
     height: 460px;
     background-color: #ffffff;
     padding: 26px;
     border: 1px solid #dfe0eb;
+    .chart-bar,
+    .chart-line {
+        width: 50%;
+        height: 100%;
+    }
+}
+
+.total-price {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    font-size: 1.8rem;
 }

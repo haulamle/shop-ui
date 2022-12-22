@@ -91,7 +91,6 @@ function UserAdmin() {
                             columns={columns}
                             pageSize={5}
                             rowsPerPageOptions={[5]}
-                            checkboxSelection
                             getRowId={(row) => row.idUser}
                         />
                     </div>

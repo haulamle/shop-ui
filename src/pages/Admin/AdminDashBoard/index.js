@@ -12,7 +12,15 @@ function AdminDashBoard() {
     const [dataProduct, setDataProduct] = useState([]);
     const [totalProduct, setTotalProduct] = useState('');
     const [totalUser, setTotalUser] = useState('');
+    const [countOder, setCountOder] = useState('');
+    const [invoice, setInvoice] = useState([]);
+    const bill = invoice.map((data) => {
+        return data.price * data.amount;
+    });
+    const totalPrice = bill.reduce((acc, cur) => acc + cur, 0);
     useEffect(() => {
+        const price = [];
+        const name = [];
         axios
             .get(`${process.env.REACT_APP_API_URL}product`, {
                 params: {},
@@ -36,6 +44,45 @@ function AdminDashBoard() {
                 console.log(error);
             });
         // eslint-disable-next-line react-hooks/exhaustive-deps
+        axios
+            .get(`${process.env.REACT_APP_API_URL}invoiceCount`, {
+                params: {},
+            })
+            .then(function (response) {
+                setCountOder(response.data[0].count);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        axios
+            .get(`${process.env.REACT_APP_API_URL}invoice`, {
+                params: {},
+            })
+            .then(function (response) {
+                setInvoice(response.data);
+                response.data.map((data) => {
+                    price.push(data.price * data.amount + '000');
+                    name.push(data.nameReceiver);
+                });
+                setOptions({
+                    chart: {
+                        id: 'basic-bar',
+                    },
+                    xaxis: {
+                        categories: name,
+                    },
+                });
+                setSeries([
+                    {
+                        name: 'Thành Tiền',
+                        data: price,
+                    },
+                ]);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }, []);
 
     const listtotal = [
@@ -48,48 +95,42 @@ function AdminDashBoard() {
             name: 'Tổng Sản Phẩm',
         },
         {
-            total: '65.000',
+            total: `${totalPrice}.000đ`,
             name: 'Tổng Danh Thu',
         },
         {
-            total: 4,
+            total: countOder,
             name: 'Tổng Hoá Đơn',
         },
     ];
 
-    const chartOptions = {
-        series: [
-            {
-                name: 'Tổng Sản Phẩm',
-                data: [40, 70, 20, 90, 36, 80, 30, 91, 60],
-            },
-            {
-                name: 'Tổng Danh Thu',
-                data: [40, 30, 70, 80, 40, 16, 40, 20, 51],
-            },
-        ],
-        options: {
-            color: ['#6ab04c', '#2980b9', '#feb019', '#ff4560'],
-            chart: {
-                background: 'transparent',
-            },
-            dataLabels: {
-                enabled: false,
-            },
-            stroke: {
-                curve: 'smooth',
-            },
-            xaxis: {
-                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
-            },
-            legend: {
-                position: 'top',
-            },
-            grid: {
-                show: false,
-            },
+    const [options, setOptions] = useState({
+        color: ['#6ab04c', '#2980b9', '#feb019', '#ff4560'],
+        dataLabels: {
+            enabled: false,
         },
-    };
+        stroke: {
+            curve: 'smooth',
+        },
+        legend: {
+            position: 'top',
+        },
+        grid: {
+            show: false,
+        },
+        chart: {
+            id: 'basic-bar',
+        },
+        xaxis: {
+            categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998],
+        },
+    });
+    const [series, setSeries] = useState([
+        {
+            name: 'Thành Tiền',
+            data: [30, 40, 45, 50, 49, 60, 70, 91],
+        },
+    ]);
 
     const columns = [
         { field: 'id', headerName: 'id', width: 60 },
@@ -127,7 +168,12 @@ function AdminDashBoard() {
                     ))}
                 </div>
                 <div className={cx('chart')}>
-                    <Chart options={chartOptions.options} series={chartOptions.series} type="line" height="100%" />
+                    <div className={cx('chart-bar')}>
+                        <Chart options={options} series={series} type="bar" height="100%" />
+                    </div>
+                    <div className={cx('chart-line')}>
+                        <Chart options={options} series={series} type="line" height="100%" />
+                    </div>
                 </div>
                 <div className={cx('list-product')}>
                     <h1>Sản Phẩm Đang Hoạt Động</h1>
@@ -137,7 +183,6 @@ function AdminDashBoard() {
                             columns={columns}
                             pageSize={5}
                             rowsPerPageOptions={[5]}
-                            checkboxSelection
                             getRowId={(row) => row.id}
                         />
                     </div>

@@ -103,7 +103,6 @@ function CategoryAdmin() {
                                 columns={columns}
                                 pageSize={5}
                                 rowsPerPageOptions={[5]}
-                                checkboxSelection
                                 getRowId={(row) => row.idDM}
                             />
                         </div>

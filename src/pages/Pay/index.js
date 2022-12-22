@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import styles from './Pay.module.scss';
 import { useCart } from 'react-use-cart';
 import ProductPay from './ProductPay';
-import logo from '~/assets/images/logo.jpg';
+import logo from '~/assets/images/logo.png';
 import { useState } from 'react';
 import axios from 'axios';
 

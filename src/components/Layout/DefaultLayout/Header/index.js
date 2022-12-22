@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tippy from '@tippyjs/react/headless';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
-import logo from '~/assets/images/logo.jpg';
+import logo from '~/assets/images/logo.png';
 
 import styles from './Header.module.scss';
 import {
@@ -36,7 +36,7 @@ function Header() {
             href: '/',
         },
     ];
-    const category = ['Mua 2 Tặng 1', 'Nam', 'Nữ', 'Trẻ Em', 'Bộ Sưu Tập'];
+    const category = [];
     return (
         <header className={cx('wrapper')}>
             <div className={cx('wrapper-header')}>

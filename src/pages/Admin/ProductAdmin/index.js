@@ -107,7 +107,6 @@ function ProductAdmin() {
                                 columns={columns}
                                 pageSize={5}
                                 rowsPerPageOptions={[5]}
-                                checkboxSelection
                                 getRowId={(row) => row.id}
                             />
                         </div>
